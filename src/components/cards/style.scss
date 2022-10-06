@@ -1,0 +1,30 @@
+.card {
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.img {
+  width: 18vw;
+  height: 50vh;
+  border-radius: 8px;
+}
+
+.desc {
+  margin-top: 100%;
+  margin-right: 100%;
+  position: absolute;
+  width: 40%;
+  background-color: white;
+  border-radius: 0px 6px 0px 0px;
+}
+
+h4 {
+  padding-top: 10%;
+}
+
+h5 {
+  color: #80918e;
+}
