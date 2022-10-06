@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 import Dropdown from "react-bootstrap/Dropdown";
 import icon from "./img/icon.png";
 

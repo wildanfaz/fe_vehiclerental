@@ -6,6 +6,7 @@
 }
 
 .layer {
+  position: absolute;
   background-color: black;
   opacity: 0.5;
   margin: 0%;
@@ -14,6 +15,7 @@
 }
 
 .formcss {
+  position: absolute;
   margin-left: 60%;
   padding-top: 15%;
 }
@@ -24,15 +26,22 @@
 }
 
 input {
+  width: 80%;
+  opacity: 0.8;
+  margin-top: 5vh !important;
   color: white;
   padding: 4%;
   padding-right: 12vw;
   border: none;
   border-radius: 6px;
-  background-color: #4e4e4e;
+  background-color: #dadada47;
 }
 
 input[type="submit"] {
+  width: 80%;
   opacity: 1;
   background-color: #ffcd61;
+  color: black;
+  font-weight: bold;
+  padding-left: 30%;
 }
