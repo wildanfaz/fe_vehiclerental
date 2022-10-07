@@ -1,4 +1,58 @@
-.formcss {
-  width: 77vw;
-  margin-left: 70%;
+.logincss {
+  z-index: 1;
+  position: absolute;
+  background-color: #393939 !important;
+  color: #ffcd61 !important;
+  font-weight: bold !important;
+  border: none !important;
+  margin-left: 10vw;
+  margin-top: 25%;
+  width: 27%;
+  padding-top: 3vh !important;
+  padding-bottom: 3vh !important;
+}
+
+.textcss {
+  z-index: 5;
+  position: absolute;
+  color: white;
+  font-size: 10vh;
+  margin-left: 10vw;
+  padding-top: 5%;
+}
+
+.h4css {
+  z-index: 5;
+  position: absolute;
+  color: white;
+  margin-left: 10%;
+  padding-top: 20%;
+}
+
+.layer {
+  position: absolute;
+  background-color: black;
+  opacity: 0.5;
+  margin: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.ecl1 {
+  position: absolute;
+  padding-left: 47%;
+  padding-top: 5%;
+}
+
+.ecl2 {
+  position: absolute;
+  padding-left: 47%;
+  padding-top: 40%;
+}
+
+.line1 {
+  position: absolute;
+  padding-left: 47.8%;
+  padding-top: 5%;
+  height: 85%;
 }

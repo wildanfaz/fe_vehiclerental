@@ -1,5 +1,6 @@
 .card {
   position: relative;
+  height: 50vh;
 }
 
 .card:hover {
@@ -7,24 +8,31 @@
 }
 
 .img {
+  display: block;
+  margin: auto;
   width: 18vw;
-  height: 50vh;
+  height: 48vh;
   border-radius: 8px;
 }
 
 .desc {
-  margin-top: 100%;
-  margin-right: 100%;
+  bottom: 0%;
   position: absolute;
-  width: 40%;
+  width: 45%;
   background-color: white;
   border-radius: 0px 6px 0px 0px;
 }
 
-h4 {
-  padding-top: 10%;
+.h4card {
+  margin-top: 5%;
+  margin-bottom: 0%;
 }
 
-h5 {
+.h5card {
+  font-size: medium;
   color: #80918e;
+}
+
+.positiontxt1 {
+  font-size: large;
 }

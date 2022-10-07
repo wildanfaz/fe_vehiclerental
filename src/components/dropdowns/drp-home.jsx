@@ -11,7 +11,7 @@ function DropdownsHome(props) {
         id="dropdown-basic"
         className="bghome"
       >
-        Location
+        {props.text}
         <img src={icon} alt="icon.png" className="iconhome" />
       </Dropdown.Toggle>
 

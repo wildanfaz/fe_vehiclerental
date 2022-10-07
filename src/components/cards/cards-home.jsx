@@ -6,10 +6,10 @@ function CardsHome() {
     <div className="card">
       <img src={a} alt="sistine" className="img"></img>
       <div className="desc">
-        <h4>
-          <b>Sistine</b>
+        <h4 className="h4card">
+          <b className="positiontxt1">Sistine</b>
         </h4>
-        <h5>Wangy</h5>
+        <h5 className="h5card">Wangy</h5>
       </div>
     </div>
   );
