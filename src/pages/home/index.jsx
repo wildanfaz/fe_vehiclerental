@@ -60,8 +60,8 @@ export class Home extends Component {
 
         <section>
           <div className="testiflex">
-            <div>
-              <h2 className="h2tes">Testimonials</h2>
+            <div className="flexcss">
+              <h2 className="h2testimonials">Testimonials</h2>
               <div className="star">
                 <img src={star} alt="star.png" />
                 <img src={star} alt="star.png" />
