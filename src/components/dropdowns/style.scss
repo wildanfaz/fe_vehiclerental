@@ -3,8 +3,8 @@
   opacity: 0.6;
   color: black !important;
   width: 15vw;
-  text-align: left;
-  padding-left: 2vw;
+  text-align: left !important;
+  padding-left: 2vw !important;
 }
 
 .dropdown-toggle::after {
@@ -12,5 +12,7 @@
 }
 
 .iconhome {
-  margin-left: 5vw;
+  position: absolute;
+  right: 10%;
+  top: 40%;
 }
