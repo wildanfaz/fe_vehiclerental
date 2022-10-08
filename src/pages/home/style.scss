@@ -53,24 +53,60 @@
 }
 
 .testiflex {
-  width: 100%;
+  position: relative;
+  width: 120%;
   display: flex;
   flex-wrap: wrap;
   margin-left: 8%;
   margin-top: 6%;
+  margin-right: 8%;
 }
 
 .flexcss {
-  width: 25%;
+  width: 30%;
 }
 
-.star {
-  margin-top: 20% !important;
+.testi {
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
-.h2testimonials {
-  margin-top: 5%;
+.testiImg {
+  width: 70%;
 }
+
+// .star {
+//   margin-top: 28% !important;
+// }
+
+// .starimg {
+//   width: 7%;
+//   height: 7%;
+//   margin-right: 2%;
+// }
+
+// .h2testimonials {
+//   margin-top: 5%;
+// }
+
+// .divimg {
+//   position: relative;
+//   height: 50vh;
+// }
+
+// .testiPhoto {
+//   position: absolute;
+//   margin-top: 19vh;
+//   margin-left: 15vw;
+//   width: 22vw;
+//   height: 67vh;
+// }
+
+// .divrect {
+//   margin-top: 30vh;
+//   width: 100%;
+//   background-color: #848484;
+// }
 
 .footerdiv1 {
   width: 100%;

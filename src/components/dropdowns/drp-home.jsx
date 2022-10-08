@@ -16,9 +16,9 @@ function DropdownsHome(props) {
       </Dropdown.Toggle>
 
       <Dropdown.Menu variant="dark">
-        <Dropdown.Item href="#/action-1">Jakarta</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Tegal</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Semarang</Dropdown.Item>
+        <Dropdown.Item href="#/action-1">{props.list1}</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">{props.list2}</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">{props.list3}</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
