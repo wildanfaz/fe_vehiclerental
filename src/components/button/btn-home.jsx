@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 function ButtonHome() {
   return (
-    <Button variant="warning" className="btnhome">
+    <Button href="/vehicles" variant="warning" className="btnhome">
       <b>Explore</b>
     </Button>
   );

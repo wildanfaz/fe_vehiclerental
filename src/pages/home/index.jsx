@@ -1,36 +1,24 @@
 import React, { Component } from "react";
-import "./style.scss";
+import "./style.css";
 import Navbar from "../../components/navbar/navbar-home";
 import Dropdowns from "../../components/dropdowns/drp-home";
 import Button from "../../components/button/btn-home";
 import Cards from "../../components/cards/cards-home";
-import logo from "./img/logo.png";
 // import star from "./img/star.png";
 import testi from "./img/testi.png";
-import footline from "./img/footline.png";
-import twitter from "./img/twitter.png";
-import facebook from "./img/facebook.png";
-import instagram from "./img/instagram.png";
-import linkedin from "./img/linkedin.png";
-import youtube from "./img/youtube.png";
+import Footer from "../../components/footer/footer";
+import Row from "react-bootstrap/Row";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "wildan",
-    };
+    console.log(props);
   }
-
-  //**mount
-  // componentDidMount() {
-  //   alert("hello");
-  // }
 
   render() {
     return (
       <main style={{ overflowX: "hidden" }}>
-        <Navbar />
+        <Navbar home="true" />
         <section className="bg-home">
           <h1 className="h1Upper">
             Explore and <br />
@@ -71,12 +59,28 @@ export class Home extends Component {
 
         <section>
           <h1 className="h1Lower">Popular in Town</h1>
-          <div className="flexvehicle">
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-          </div>
+          <Row xs={1} sm={2} md={4} className="rowCards">
+            <Cards
+              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322335/vehiclerental/Sun_Oct__9_13-32-15_2022-bmw-i4-35041.jpg.jpg"
+              name="BMW i4"
+              location="Malang"
+            />
+            <Cards
+              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322043/vehiclerental/Sun_Oct__9_13-27-23_2022-kawasaki-ninja-h2r-marketing-image-299806.jpg.jpg"
+              name="Kawasaki Ninja H2R"
+              location="Jakarta"
+            />
+            <Cards
+              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322462/vehiclerental/Sun_Oct__9_13-34-22_2022-honda-wr-v-32835.jpg.jpg"
+              name="Honda WRV"
+              location="Yogyakarta"
+            />
+            <Cards
+              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665321979/vehiclerental/Sun_Oct__9_13-26-19_2022-kawasaki-ninja-h2sx-marketing-image-160369.jpg.jpg"
+              name="Kawasaki Ninja H2SX"
+              location="Jakarta"
+            />
+          </Row>
         </section>
 
         <section className="testi">
@@ -84,63 +88,7 @@ export class Home extends Component {
         </section>
 
         <section>
-          <footer>
-            <div className="footerdiv1">
-              <div className="footerdiv2">
-                <img src={logo} alt="logo.jpg" />
-                <p>
-                  Plan and book your perfect trip with <br />
-                  expert advice, travel tips for vehicle
-                  <br />
-                  information from us
-                </p>
-                <p>©2020 Vehicle Rental Center. All rights reserved</p>
-              </div>
-
-              <div className="footerdiv3">
-                <ul>
-                  <h6>Destinations</h6>
-                  <li>Bali</li>
-                  <li>Yogyakarta</li>
-                  <li>Jakarta</li>
-                  <li>Kalimantan</li>
-                  <li>Malang</li>
-                </ul>
-              </div>
-
-              <div className="footerdiv3">
-                <ul>
-                  <h6>Vehicle</h6>
-                  <li>Bike</li>
-                  <li>Cars</li>
-                  <li>Motorbike</li>
-                  <li>Return Times</li>
-                  <li>FAQs</li>
-                </ul>
-              </div>
-
-              <div className="footerdiv3">
-                <ul>
-                  <h6>Interests</h6>
-                  <li>Adventure Travel</li>
-                  <li>Art And Culture</li>
-                  <li>Wildlife And Nature</li>
-                  <li>Family Holidays</li>
-                  <li>Culinary Trip</li>
-                </ul>
-              </div>
-            </div>
-
-            <img src={footline} alt="footline.png" className="footline" />
-            <br />
-            <div className="footerdiv4">
-              <img src={twitter} alt="twitter.png" className="imgspace" />
-              <img src={facebook} alt="facebook.png" className="imgspace" />
-              <img src={instagram} alt="instagram.png" className="imgspace" />
-              <img src={linkedin} alt="linkedin.png" className="imgspace" />
-              <img src={youtube} alt="youtube.png" className="imgspace" />
-            </div>
-          </footer>
+          <Footer />
         </section>
       </main>
     );

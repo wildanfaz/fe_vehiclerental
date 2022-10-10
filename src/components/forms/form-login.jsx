@@ -4,20 +4,21 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import google from "./img/google.png";
 
-function FormRegister() {
-  const [name, setName] = useState("");
+function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [pwdMsg, setPwdMsg] = useState("");
+  const [emailMsg, setEmailMsg] = useState("");
+  const [err, setErr] = useState(false);
   // const [msg, setMsg] = useState("");
   const history = useHistory();
 
-  const Register = async (e) => {
+  const Login = async (e) => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/users",
+        "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/auth",
         {
-          name: name,
           email: email,
           password: password,
         }
@@ -26,20 +27,34 @@ function FormRegister() {
     } catch (error) {
       if (error.response) {
         console.log(error.response.data);
+        if (error.response.data.message.includes("email")) {
+          setEmailMsg(String(error.response.data.message));
+        } else {
+          setPwdMsg(String(error.response.data.message));
+        }
+
+        console.log(pwdMsg);
+        // alert(msg);
+        setErr(true);
       }
+    }
+  };
+
+  const checkEmail = () => {
+    if (err && emailMsg.length > 0) {
+      return <h4 style={{ color: "white" }}>Incorrect Email</h4>;
+    }
+  };
+
+  const checkPassword = () => {
+    if (err && pwdMsg.length > 0) {
+      return <h4 style={{ color: "white" }}>Incorrect Password</h4>;
     }
   };
 
   return (
     <div className="maincss">
-      <form className="formcss" onSubmit={Register}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="inputformReg"
-        />
+      <form className="formcss" onSubmit={Login}>
         <input
           type="email"
           value={email}
@@ -47,6 +62,7 @@ function FormRegister() {
           placeholder="Email"
           className="inputform"
         />
+        <div>{checkEmail()}</div>
         <input
           type="password"
           value={password}
@@ -54,18 +70,22 @@ function FormRegister() {
           placeholder="Password"
           className="inputform"
         />
-        <input type="submit" value="Sign Up" className="inputform submitreg" />
+        <div>{checkPassword()}</div>
+        <label style={{ color: "white", marginTop: "10px" }}>
+          <u>Forgot password?</u>
+        </label>
+        <input type="submit" value="Login" className="inputform submitlog" />
         <div style={{ display: "flex" }}>
           <input
             type="button"
             value="Login with Google"
             className="inputform buttonGoogle"
           />
-          <img src={google} className="gpng" alt="google.png" />
+          <img src={google} className="gpngLog" alt="google.png" />
         </div>
       </form>
     </div>
   );
 }
 
-export default FormRegister;
+export default FormLogin;

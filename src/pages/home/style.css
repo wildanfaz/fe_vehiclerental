@@ -1,0 +1,83 @@
+.bg-home {
+  background-image: url("./img/bg-home.png");
+  background-size: 100% 100%;
+  width: 100%;
+  height: 600px;
+}
+
+.h1Upper {
+  color: white;
+  padding-left: 6%;
+  padding-top: 3%;
+  font-size: 4vw;
+}
+
+.h5css {
+  color: white;
+  padding-left: 6%;
+  padding-top: 4%;
+}
+
+.rectangle {
+  width: 32px;
+  height: 2px;
+  background-color: white;
+  margin-left: 6%;
+  margin-top: 2%;
+}
+
+.flex {
+  width: 35vw;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 6%;
+  margin-top: 3%;
+  gap: 2vw;
+}
+
+.h1Lower {
+  color: black;
+  margin-top: 6%;
+  margin-left: 8%;
+  margin-bottom: 5%;
+}
+
+.r {
+  margin-top: 6%;
+  margin-left: 8%;
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.testiflex {
+  position: relative;
+  width: 120%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 8%;
+  margin-top: 6%;
+  margin-right: 8%;
+}
+
+.flexcss {
+  width: 30%;
+}
+
+.testi {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.testiImg {
+  margin-top: -3%;
+  width: 82%;
+}
+
+.rowCards {
+  margin-left: 7% !important;
+}
+
+h5 {
+  color: black;
+}

@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./router";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+axios.defaults.baseURL =
+  "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

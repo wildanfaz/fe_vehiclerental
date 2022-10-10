@@ -1,0 +1,28 @@
+.imgCss1 {
+  border-radius: 8px !important;
+  position: relative;
+  width: 100% !important;
+  height: 54vh;
+}
+
+.crd:hover {
+  transform: scale(1.05);
+}
+
+.crd {
+  width: 15rem;
+}
+
+.title {
+  position: absolute;
+  bottom: 0%;
+  width: 46%;
+  height: 16%;
+  border-radius: 0px 6px 0px 0px;
+  background-color: white;
+}
+
+.cols {
+  margin-right: -2vw;
+  margin-bottom: 55px;
+}

@@ -8,15 +8,32 @@ import logo from "./img/logo.png";
 function HomeNavbar(props) {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
+
   return (
     <Navbar bg="light" variant="light">
       <Container>
         <img src={logo} alt="logo.jpg" />
         <Nav className="ms-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/vehicles">Vehicle Type</Nav.Link>
-          <Nav.Link href="/histories">History</Nav.Link>
-          <Nav.Link href="/about" style={{ marginRight: "10px" }}>
+          <Nav.Link href="/" className={props.home ? "choosen" : ""}>
+            Home
+          </Nav.Link>
+          <Nav.Link
+            href="/vehicles"
+            className={props.vehicles ? "choosen" : ""}
+          >
+            Vehicle Type
+          </Nav.Link>
+          <Nav.Link
+            href="/histories"
+            className={props.histories ? "choosen" : ""}
+          >
+            History
+          </Nav.Link>
+          <Nav.Link
+            href="/about"
+            className={props.about ? "choosen" : ""}
+            style={{ marginRight: "20px" }}
+          >
             About
           </Nav.Link>
           <Nav.Link
