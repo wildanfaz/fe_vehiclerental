@@ -8,11 +8,28 @@ import Cards from "../../components/cards/cards-home";
 import testi from "./img/testi.png";
 import Footer from "../../components/footer/footer";
 import Row from "react-bootstrap/Row";
+import axios from "axios";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    this.state = {
+      vehicles: [],
+    };
+  }
+
+  getVehicles = async () => {
+    try {
+      const url = "/vehicles/popular/0";
+      const { data } = await axios.get(url);
+      this.setState({ vehicles: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  componentDidMount() {
+    this.getVehicles();
   }
 
   render() {
@@ -60,26 +77,17 @@ export class Home extends Component {
         <section>
           <h1 className="h1Lower">Popular in Town</h1>
           <Row xs={1} sm={2} md={4} className="rowCards">
-            <Cards
-              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322335/vehiclerental/Sun_Oct__9_13-32-15_2022-bmw-i4-35041.jpg.jpg"
-              name="BMW i4"
-              location="Malang"
-            />
-            <Cards
-              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322043/vehiclerental/Sun_Oct__9_13-27-23_2022-kawasaki-ninja-h2r-marketing-image-299806.jpg.jpg"
-              name="Kawasaki Ninja H2R"
-              location="Jakarta"
-            />
-            <Cards
-              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665322462/vehiclerental/Sun_Oct__9_13-34-22_2022-honda-wr-v-32835.jpg.jpg"
-              name="Honda WRV"
-              location="Yogyakarta"
-            />
-            <Cards
-              img="https://res.cloudinary.com/dqc9wlsik/image/upload/v1665321979/vehiclerental/Sun_Oct__9_13-26-19_2022-kawasaki-ninja-h2sx-marketing-image-160369.jpg.jpg"
-              name="Kawasaki Ninja H2SX"
-              location="Jakarta"
-            />
+            {this.state.vehicles.data?.map((v, k) => {
+              return (
+                <Cards
+                  key={k}
+                  id={v.vehicle_id}
+                  img={v.image}
+                  name={v.vehicle_name}
+                  location={v.location}
+                />
+              );
+            })}
           </Row>
         </section>
 

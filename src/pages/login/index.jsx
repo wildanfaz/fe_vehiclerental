@@ -8,8 +8,7 @@ import Footer from "../../components/footer/footer";
 
 function Login() {
   return (
-    <div>
-      <div></div>
+    <div style={{ overflowX: "hidden" }}>
       <div className="layer" />
       <h1 className="textcss">
         Le'ts Explore

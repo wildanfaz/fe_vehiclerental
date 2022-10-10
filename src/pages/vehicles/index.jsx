@@ -11,6 +11,9 @@ export class GetVehicles extends Component {
     super(props);
     this.state = {
       vehicles: [],
+      cars: [],
+      motorbike: [],
+      bike: [],
       searchResult: null,
       searchQuery: "",
       click: false,
@@ -22,6 +25,36 @@ export class GetVehicles extends Component {
       const url = "/vehicles/popular/0";
       const { data } = await axios.get(url);
       this.setState({ vehicles: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  getCars = async () => {
+    try {
+      const url = "/vehicles/cars";
+      const { data } = await axios.get(url);
+      this.setState({ cars: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  getMotorbike = async () => {
+    try {
+      const url = "/vehicles/motorbike";
+      const { data } = await axios.get(url);
+      this.setState({ motorbike: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  getBike = async () => {
+    try {
+      const url = "/vehicles/bike";
+      const { data } = await axios.get(url);
+      this.setState({ bike: data });
     } catch (error) {
       alert(error);
     }
@@ -46,6 +79,9 @@ export class GetVehicles extends Component {
 
   componentDidMount() {
     this.getVehicles();
+    this.getCars();
+    this.getMotorbike();
+    this.getBike();
   }
 
   clickTrue = () => {
@@ -83,6 +119,7 @@ export class GetVehicles extends Component {
     } else {
       return (
         <div>
+          <h1 className="h1Lower">Popular in Town</h1>
           <Row
             xs={1}
             sm={2}
@@ -90,6 +127,66 @@ export class GetVehicles extends Component {
             style={{ marginLeft: "7%", marginTop: "4%" }}
           >
             {this.state.vehicles.data?.map((v, k) => {
+              return (
+                <Cards
+                  key={k}
+                  id={v.vehicle_id}
+                  img={v.image}
+                  name={v.vehicle_name}
+                  location={v.location}
+                />
+              );
+            })}
+          </Row>
+
+          <h1 className="h1Lower">Cars</h1>
+          <Row
+            xs={1}
+            sm={2}
+            md={4}
+            style={{ marginLeft: "7%", marginTop: "4%" }}
+          >
+            {this.state.cars.data?.map((v, k) => {
+              return (
+                <Cards
+                  key={k}
+                  id={v.vehicle_id}
+                  img={v.image}
+                  name={v.vehicle_name}
+                  location={v.location}
+                />
+              );
+            })}
+          </Row>
+
+          <h1 className="h1Lower">Motorbike</h1>
+          <Row
+            xs={1}
+            sm={2}
+            md={4}
+            style={{ marginLeft: "7%", marginTop: "4%" }}
+          >
+            {this.state.motorbike.data?.map((v, k) => {
+              return (
+                <Cards
+                  key={k}
+                  id={v.vehicle_id}
+                  img={v.image}
+                  name={v.vehicle_name}
+                  location={v.location}
+                />
+              );
+            })}
+          </Row>
+
+          <h1 className="h1Lower">Bike</h1>
+          <Row
+            xs={1}
+            sm={2}
+            md={4}
+            style={{ marginLeft: "7%", marginTop: "4%" }}
+          >
+            {this.state.bike.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}

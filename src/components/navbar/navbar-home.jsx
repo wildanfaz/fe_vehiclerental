@@ -45,7 +45,12 @@ function HomeNavbar(props) {
               setLogin(false);
             }}
             className={login ? "btnNav onMouse" : "btnNav"}
-            style={{ paddingLeft: "5vh", paddingRight: "5vh" }}
+            style={{
+              paddingLeft: "5vh",
+              paddingRight: "5vh",
+              marginTop: "5px",
+              marginBottom: "5px",
+            }}
           >
             Login
           </Nav.Link>
@@ -58,7 +63,12 @@ function HomeNavbar(props) {
               setRegister(false);
             }}
             className={register ? "btnNav onMouse" : "btnNav"}
-            style={{ paddingLeft: "4vh", paddingRight: "4vh" }}
+            style={{
+              paddingLeft: "4vh",
+              paddingRight: "4vh",
+              marginTop: "5px",
+              marginBottom: "5px",
+            }}
           >
             Register
           </Nav.Link>
