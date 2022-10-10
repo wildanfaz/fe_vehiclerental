@@ -14,7 +14,7 @@ git clone https://github.com/wildanfaz/fe_vehiclerental.git
 go mod tidy
 ```
 
-## NEtlify
+## Netlify
 
 ```bash
 https://63445205843850315b076e81--graceful-wisp-7760c5.netlify.app/
