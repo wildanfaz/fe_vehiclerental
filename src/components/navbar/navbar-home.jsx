@@ -18,7 +18,7 @@ function HomeNavbar(props) {
           <Nav.Link href="/" className={props.home ? "choosen" : ""}>
             Home
           </Nav.Link>
-          <Link to="/vehicles">
+          <Link to="/vehicles" style={{ textDecoration: "none" }}>
             <Nav.Link
               href="/vehicles"
               className={props.vehicles ? "choosen" : ""}
