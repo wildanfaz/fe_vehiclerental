@@ -23,7 +23,7 @@ function Login() {
       </div>
       <h4 className="h4css">Don't have account?</h4>
       <Link to="/register" style={{ textDecoration: "none" }}>
-        <Button href="/register" variant="secondary" className="logincss">
+        <Button variant="secondary" className="logincss">
           Sign Up
         </Button>
       </Link>

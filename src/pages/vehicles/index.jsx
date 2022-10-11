@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+import "./style.css";
 import Navbar from "../../components/navbar/navbar-home";
 import Footer from "../../components/footer/footer";
 import Cards from "../../components/cards/cards-home";
 import searchLogo from "./img/search.png";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import vwall from "./img/vwall.png";
 
 export class GetVehicles extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      allVehicle: [],
       vehicles: [],
       cars: [],
       motorbike: [],
@@ -17,8 +20,19 @@ export class GetVehicles extends Component {
       searchResult: null,
       searchQuery: "",
       click: false,
+      viewAll: false,
     };
   }
+
+  getAllVehicle = async () => {
+    try {
+      const url = "/vehicles";
+      const { data } = await axios.get(url);
+      this.setState({ allVehicle: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   getVehicles = async () => {
     try {
@@ -78,6 +92,7 @@ export class GetVehicles extends Component {
   };
 
   componentDidMount() {
+    this.getAllVehicle();
     this.getVehicles();
     this.getCars();
     this.getMotorbike();
@@ -86,6 +101,10 @@ export class GetVehicles extends Component {
 
   clickTrue = () => {
     this.setState({ click: true });
+  };
+
+  clickView = () => {
+    this.setState({ viewAll: true });
   };
 
   setQuery = (event) => {
@@ -116,10 +135,41 @@ export class GetVehicles extends Component {
           </Row>
         </div>
       );
+    } else if (this.state.viewAll) {
+      return (
+        <div>
+          <Row
+            xs={1}
+            sm={2}
+            md={4}
+            style={{ marginLeft: "7%", marginTop: "4%" }}
+          >
+            {this.state.allVehicle.data?.map((v, k) => {
+              return (
+                <Cards
+                  key={k}
+                  id={v.vehicle_id}
+                  img={v.image}
+                  name={v.vehicle_name}
+                  location={v.location}
+                />
+              );
+            })}
+          </Row>
+        </div>
+      );
     } else {
       return (
         <div>
-          <h1 className="h1Lower">Popular in Town</h1>
+          <div style={{ display: "flex" }}>
+            <h1 className="h1Lower">Popular in Town</h1>
+            <img
+              src={vwall}
+              alt="vwall.png"
+              className="vwall"
+              onClick={this.clickView}
+            />
+          </div>
           <Row
             xs={1}
             sm={2}

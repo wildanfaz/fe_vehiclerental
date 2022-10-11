@@ -1,13 +1,6 @@
-.vhcl {
-  position: absolute;
-  margin-left: 66px !important;
-}
-
-.btnvhcl {
-  position: absolute;
-  border: none;
-  width: 24px;
-  height: 24px;
-  right: 14%;
-  margin-top: 8px;
+.vwall {
+  margin-left: 650px;
+  margin-top: 57px;
+  width: 120px;
+  height: 100px;
 }

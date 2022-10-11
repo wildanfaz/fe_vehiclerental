@@ -12,4 +12,26 @@ $color: #ffcd61;
 
 .choosen {
   color: black !important;
+  margin-top: 15px;
+  margin-right: 30px;
+}
+
+.unChoosen {
+  color: gray;
+  margin-top: 15px;
+  margin-right: 30px;
+}
+
+.unChoosen:hover {
+  color: black;
+}
+
+.hvr {
+  color: black;
+  margin-top: 14px;
+  margin-right: 30px;
+}
+
+.hvr:hover {
+  color: black;
 }

@@ -15,69 +15,78 @@ function HomeNavbar(props) {
       <Container>
         <img src={logo} alt="logo.jpg" />
         <Nav className="ms-auto">
-          <Nav.Link href="/" className={props.home ? "choosen" : ""}>
+          <Link
+            to="/"
+            style={{ textDecoration: "none", marginLeft: "20px" }}
+            className={props.home ? "choosen" : "unChoosen"}
+          >
             Home
-          </Nav.Link>
-          <Link to="/vehicles" style={{ textDecoration: "none" }}>
-            <Nav.Link
-              href="/vehicles"
-              className={props.vehicles ? "choosen" : ""}
-            >
-              Vehicle Type
-            </Nav.Link>
           </Link>
-          <Link to="/histories" style={{ textDecoration: "none" }}>
-            <Nav.Link className={props.histories ? "choosen" : ""}>
-              History
-            </Nav.Link>
+          <Link
+            to="/vehicles"
+            style={{ textDecoration: "none" }}
+            className={props.vehicles ? "choosen" : "unChoosen"}
+          >
+            Vehicle Type
           </Link>
-          <Link to="/about" style={{ textDecoration: "none" }}>
-            <Nav.Link
-              className={props.about ? "choosen" : ""}
-              style={{ marginRight: "20px" }}
-            >
-              About
-            </Nav.Link>
+          <Link
+            to="/histories"
+            style={{ textDecoration: "none" }}
+            className={props.histories ? "choosen" : "unChoosen"}
+          >
+            History
           </Link>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <Nav.Link
-              href="/login"
+          <Link
+            to="/about"
+            style={{ textDecoration: "none" }}
+            className={props.about ? "choosen" : "unChoosen"}
+          >
+            About
+          </Link>
+          <Link
+            to="/login"
+            style={{ textDecoration: "none", marginRight: "-25px" }}
+          >
+            <div
               onMouseEnter={() => {
                 setLogin(true);
               }}
               onMouseLeave={() => {
                 setLogin(false);
               }}
-              className={login ? "btnNav onMouse" : "btnNav"}
+              className={login ? "btnNav onMouse hvr" : "btnNav hvr"}
               style={{
-                paddingLeft: "5vh",
-                paddingRight: "5vh",
-                marginTop: "5px",
+                paddingTop: "5px",
+                paddingBottom: "5px",
+                marginTop: "13px",
                 marginBottom: "5px",
+                textAlign: "center",
+                width: "120px",
               }}
             >
               Login
-            </Nav.Link>
+            </div>
           </Link>
           <Link to="/register" style={{ textDecoration: "none" }}>
-            <Nav.Link
-              href="/register"
+            <div
               onMouseEnter={() => {
                 setRegister(true);
               }}
               onMouseLeave={() => {
                 setRegister(false);
               }}
-              className={register ? "btnNav onMouse" : "btnNav"}
+              className={register ? "btnNav onMouse hvr" : "btnNav hvr"}
               style={{
-                paddingLeft: "4vh",
-                paddingRight: "4vh",
-                marginTop: "5px",
+                paddingTop: "5px",
+                paddingBottom: "5px",
+                marginTop: "13px",
                 marginBottom: "5px",
+                textAlign: "center",
+                width: "120px",
               }}
             >
               Register
-            </Nav.Link>
+            </div>
           </Link>
         </Nav>
       </Container>
