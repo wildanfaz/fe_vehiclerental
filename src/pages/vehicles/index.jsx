@@ -166,7 +166,7 @@ export class GetVehicles extends Component {
             <img
               src={vwall}
               alt="vwall.png"
-              className="vwall"
+              className="vwall hvr-grow-shadow"
               onClick={this.clickView}
             />
           </div>
@@ -189,7 +189,15 @@ export class GetVehicles extends Component {
             })}
           </Row>
 
-          <h1 className="h1Lower">Cars</h1>
+          <div style={{ display: "flex" }}>
+            <h1 className="h1Lower">Cars</h1>
+            <img
+              src={vwall}
+              alt="vwall.png"
+              className="vwall hvr-grow-shadow"
+              onClick={this.clickView}
+            />
+          </div>
           <Row
             xs={1}
             sm={2}
@@ -208,8 +216,15 @@ export class GetVehicles extends Component {
               );
             })}
           </Row>
-
-          <h1 className="h1Lower">Motorbike</h1>
+          <div style={{ display: "flex" }}>
+            <h1 className="h1Lower">Motorbike</h1>
+            <img
+              src={vwall}
+              alt="vwall.png"
+              className="vwall hvr-grow-shadow"
+              onClick={this.clickView}
+            />
+          </div>
           <Row
             xs={1}
             sm={2}
@@ -228,8 +243,16 @@ export class GetVehicles extends Component {
               );
             })}
           </Row>
+          <div style={{ display: "flex" }}>
+            <h1 className="h1Lower">Bike</h1>
+            <img
+              src={vwall}
+              alt="vwall.png"
+              className="vwall hvr-grow-shadow"
+              onClick={this.clickView}
+            />
+          </div>
 
-          <h1 className="h1Lower">Bike</h1>
           <Row
             xs={1}
             sm={2}
