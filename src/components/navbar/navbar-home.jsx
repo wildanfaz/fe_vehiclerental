@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./img/logo.png";
+import { Link } from "react-router-dom";
 
 function HomeNavbar(props) {
   const [login, setLogin] = useState(false);
@@ -54,24 +55,27 @@ function HomeNavbar(props) {
           >
             Login
           </Nav.Link>
-          <Nav.Link
-            href="/register"
-            onMouseEnter={() => {
-              setRegister(true);
-            }}
-            onMouseLeave={() => {
-              setRegister(false);
-            }}
-            className={register ? "btnNav onMouse" : "btnNav"}
-            style={{
-              paddingLeft: "4vh",
-              paddingRight: "4vh",
-              marginTop: "5px",
-              marginBottom: "5px",
-            }}
-          >
-            Register
-          </Nav.Link>
+          <Link to="/register">
+            {" "}
+            <Nav.Link
+              href="/register"
+              onMouseEnter={() => {
+                setRegister(true);
+              }}
+              onMouseLeave={() => {
+                setRegister(false);
+              }}
+              className={register ? "btnNav onMouse" : "btnNav"}
+              style={{
+                paddingLeft: "4vh",
+                paddingRight: "4vh",
+                marginTop: "5px",
+                marginBottom: "5px",
+              }}
+            >
+              Register
+            </Nav.Link>
+          </Link>
         </Nav>
       </Container>
     </Navbar>
