@@ -76,12 +76,10 @@ function FormLogin() {
         </label>
         <input type="submit" value="Login" className="inputform submitlog" />
         <div style={{ display: "flex" }}>
-          <input
-            type="button"
-            value="Login with Google"
-            className="inputform buttonGoogle"
-          />
-          <img src={google} className="gpngLog" alt="google.png" />
+          <button className="inputform buttonGoogle">
+            <img src={google} className="gpng" alt="google.png" />
+            Login with Google
+          </button>
         </div>
       </form>
     </div>

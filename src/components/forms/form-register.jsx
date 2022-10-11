@@ -56,12 +56,10 @@ function FormRegister() {
         />
         <input type="submit" value="Sign Up" className="inputform submitreg" />
         <div style={{ display: "flex" }}>
-          <input
-            type="button"
-            value="Login with Google"
-            className="inputform buttonGoogle"
-          />
-          <img src={google} className="gpng" alt="google.png" />
+          <button className="inputform buttonGoogle">
+            <img src={google} className="gpng" alt="google.png" />
+            Sign Up with Google
+          </button>
         </div>
       </form>
     </div>
