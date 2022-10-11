@@ -4,8 +4,8 @@ import App from "./router";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-axios.defaults.baseURL =
-  "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/";
+import getenv from "getenv";
+axios.defaults.baseURL = getenv.name("BASE_URL");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
