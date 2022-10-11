@@ -17,7 +17,7 @@ go mod tidy
 ## Netlify
 
 ```bash
-https://63445205843850315b076e81--graceful-wisp-7760c5.netlify.app/
+https://6344fd2b6acece5f8276ee80--ephemeral-speculoos-16c12e.netlify.app/
 ```
 
 ## Features

@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import eclipse from "./img/eclipse.png";
 import line from "./img/line.png";
 import Footer from "../../components/footer/footer";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -21,9 +22,11 @@ function Login() {
         <img src={eclipse} alt="eclipse.png" className="ecl2" />
       </div>
       <h4 className="h4css">Don't have account?</h4>
-      <Button href="/register" variant="secondary" className="logincss">
-        Sign Up
-      </Button>
+      <Link to="/register" style={{ textDecoration: "none" }}>
+        <Button href="/register" variant="secondary" className="logincss">
+          Sign Up
+        </Button>
+      </Link>
       <FormLogin />;
       <Footer />
     </div>

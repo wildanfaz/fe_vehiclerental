@@ -41,6 +41,7 @@ function HomeNavbar(props) {
           </Link>
           <Link to="/login" style={{ textDecoration: "none" }}>
             <Nav.Link
+              href="/login"
               onMouseEnter={() => {
                 setLogin(true);
               }}

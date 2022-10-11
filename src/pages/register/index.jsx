@@ -6,6 +6,7 @@ import eclipse from "./img/eclipse.png";
 import line from "./img/line.png";
 import Footer from "../../components/footer/footer";
 import bg from "./img/bg-auth.png";
+import { Link } from "react-router-dom";
 
 function Register() {
   return (
@@ -23,9 +24,11 @@ function Register() {
           <img src={eclipse} alt="eclipse.png" className="ecl2" />
         </div>
         <h4 className="h4css">Don't have account?</h4>
-        <Button href="/login" variant="secondary" className="logincss">
-          Login
-        </Button>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <Button variant="secondary" className="logincss">
+            Login
+          </Button>
+        </Link>
         <FormRegister />;
       </div>
       <Footer />
