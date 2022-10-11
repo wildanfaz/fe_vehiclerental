@@ -18,11 +18,12 @@ function HomeNavbar(props) {
           <Nav.Link href="/" className={props.home ? "choosen" : ""}>
             Home
           </Nav.Link>
-          <Link to="/vehicles" style={{ textDecoration: "none" }}>
-            <Nav.Link className={props.vehicles ? "choosen" : ""}>
-              Vehicle Type
-            </Nav.Link>
-          </Link>
+          <Nav.Link
+            href="/vehicles"
+            className={props.vehicles ? "choosen" : ""}
+          >
+            Vehicle Type
+          </Nav.Link>
           <Link to="/histories" style={{ textDecoration: "none" }}>
             <Nav.Link className={props.histories ? "choosen" : ""}>
               History
