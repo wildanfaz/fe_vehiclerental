@@ -19,7 +19,7 @@ function HomeNavbar(props) {
             Home
           </Nav.Link>
           <Nav.Link
-            href="/vehicles"
+            href="/vehicles/"
             className={props.vehicles ? "choosen" : ""}
           >
             Vehicle Type
