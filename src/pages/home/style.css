@@ -1,21 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Nunito&family=Playfair+Display&family=Rubik&display=swap");
+
+.nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+.pfdisplay {
+  font-family: "Playfair Display", serif;
+}
+
+.mulish {
+  font-family: "Mulish", sans-serif;
+}
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+}
+
 .bg-home {
   background-image: url("./img/bg-home.png");
   background-size: 100% 100%;
   width: 100%;
-  height: 600px;
+  height: 100%;
+  padding-bottom: 100px;
 }
 
 .h1Upper {
   color: white;
   padding-left: 6%;
   padding-top: 3%;
-  font-size: 4vw;
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .h5css {
   color: white;
   padding-left: 6%;
   padding-top: 4%;
+  font-weight: bold;
 }
 
 .rectangle {

@@ -11,14 +11,22 @@ function DropdownsHome(props) {
         id="dropdown-basic"
         className="bghome"
       >
-        {props.text}
-        <img src={icon} alt="icon.png" className="iconhome" />
+        <div className="nunito">
+          {props.text}
+          <img src={icon} alt="icon.png" className="iconhome" />
+        </div>
       </Dropdown.Toggle>
 
       <Dropdown.Menu variant="dark">
-        <Dropdown.Item href="#/action-1">{props.list1}</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">{props.list2}</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">{props.list3}</Dropdown.Item>
+        <Dropdown.Item href="#/action-1">
+          <div className="nunito">{props.list1}</div>
+        </Dropdown.Item>
+        <Dropdown.Item href="#/action-2">
+          <div className="nunito">{props.list2}</div>
+        </Dropdown.Item>
+        <Dropdown.Item href="#/action-3">
+          <div className="nunito">{props.list3}</div>
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

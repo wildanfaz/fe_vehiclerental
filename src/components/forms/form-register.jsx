@@ -1,38 +1,44 @@
 import React, { useState } from "react";
 import "./style.scss";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import google from "./img/google.png";
+import useApi from "../../helpers/api";
 
 function FormRegister() {
+  const api = useApi();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [data, setData] = useState();
   // const [msg, setMsg] = useState("");
-  const history = useHistory();
 
-  const Register = async (e) => {
+  const Register = (e) => {
     e.preventDefault();
-    try {
-      await axios.post(
-        "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/users",
-        {
-          name: name,
-          email: email,
-          password: password,
-        }
-      );
-      history.push("/");
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response.data);
-      }
-    }
+    setData({
+      name: name,
+      email: email,
+      password: password,
+    });
+
+    api
+      .req({
+        method: "POST",
+        url: "/users",
+        data: { data },
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <div className="maincss">
-      <form className="formcss" onSubmit={Register}>
+      <div className="formcss">
         <input
           type="text"
           value={name}
@@ -54,14 +60,19 @@ function FormRegister() {
           placeholder="Password"
           className="inputform"
         />
-        <input type="submit" value="Sign Up" className="inputform submitreg" />
+        <input
+          type="button"
+          value="Sign Up"
+          className="inputform btnreg"
+          onClick={Register}
+        />
         <div style={{ display: "flex" }}>
           <button className="inputform buttonGoogle">
             <img src={google} className="gpng" alt="google.png" />
             Sign Up with Google
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

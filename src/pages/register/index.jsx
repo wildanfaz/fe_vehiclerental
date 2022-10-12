@@ -10,26 +10,33 @@ import { Link } from "react-router-dom";
 
 function Register() {
   return (
-    <div style={{ overflowX: "hidden", backgroundImage: { bg } }}>
-      <div className="layer" />
-      <div style={{ display: "flex" }}>
-        <h1 className="textcss">
-          Le'ts Explore
-          <br />
-          The World
-        </h1>
-        <div>
-          <img src={eclipse} alt="eclipse.png" className="ecl1" />
-          <img src={line} alt="line.png" className="line1" />
-          <img src={eclipse} alt="eclipse.png" className="ecl2" />
+    <div style={{ overflowX: "hidden" }}>
+      <div
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundSize: "100% 100%",
+        }}
+      >
+        <div className="layer" />
+        <div style={{ display: "flex" }}>
+          <h1 className="textcss">
+            Le'ts Explore
+            <br />
+            The World
+          </h1>
+          <div style={{ zIndex: "1" }}>
+            <img src={eclipse} alt="eclipse.png" className="ecl1" />
+            <img src={line} alt="line.png" className="line1" />
+            <img src={eclipse} alt="eclipse.png" className="ecl2" />
+          </div>
+          <h4 className="h4css">Don't have account?</h4>
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <Button variant="secondary" className="logincss">
+              Login
+            </Button>
+          </Link>
+          <FormRegister />;
         </div>
-        <h4 className="h4css">Don't have account?</h4>
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <Button variant="secondary" className="logincss">
-            Login
-          </Button>
-        </Link>
-        <FormRegister />;
       </div>
       <Footer />
     </div>

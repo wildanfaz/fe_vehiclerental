@@ -162,7 +162,9 @@ export class GetVehicles extends Component {
       return (
         <div>
           <div style={{ display: "flex" }}>
-            <h1 className="h1Lower">Popular in Town</h1>
+            <h1 className="h1Lower pfdisplay" style={{ fontWeight: "600" }}>
+              Popular in Town
+            </h1>
             <img
               src={vwall}
               alt="vwall.png"
@@ -174,7 +176,7 @@ export class GetVehicles extends Component {
             xs={1}
             sm={2}
             md={4}
-            style={{ marginLeft: "7%", marginTop: "4%" }}
+            style={{ marginLeft: "7%", marginTop: "3%" }}
           >
             {this.state.vehicles.data?.map((v, k) => {
               return (
@@ -190,7 +192,9 @@ export class GetVehicles extends Component {
           </Row>
 
           <div style={{ display: "flex" }}>
-            <h1 className="h1Lower">Cars</h1>
+            <h1 className="h1Lower pfdisplay" style={{ fontWeight: "600" }}>
+              Cars
+            </h1>
             <img
               src={vwall}
               alt="vwall.png"
@@ -202,7 +206,7 @@ export class GetVehicles extends Component {
             xs={1}
             sm={2}
             md={4}
-            style={{ marginLeft: "7%", marginTop: "4%" }}
+            style={{ marginLeft: "7%", marginTop: "3%" }}
           >
             {this.state.cars.data?.map((v, k) => {
               return (
@@ -217,7 +221,9 @@ export class GetVehicles extends Component {
             })}
           </Row>
           <div style={{ display: "flex" }}>
-            <h1 className="h1Lower">Motorbike</h1>
+            <h1 className="h1Lower pfdisplay" style={{ fontWeight: "600" }}>
+              Motorbike
+            </h1>
             <img
               src={vwall}
               alt="vwall.png"
@@ -229,7 +235,7 @@ export class GetVehicles extends Component {
             xs={1}
             sm={2}
             md={4}
-            style={{ marginLeft: "7%", marginTop: "4%" }}
+            style={{ marginLeft: "7%", marginTop: "3%" }}
           >
             {this.state.motorbike.data?.map((v, k) => {
               return (
@@ -244,7 +250,9 @@ export class GetVehicles extends Component {
             })}
           </Row>
           <div style={{ display: "flex" }}>
-            <h1 className="h1Lower">Bike</h1>
+            <h1 className="h1Lower pfdisplay" style={{ fontWeight: "600" }}>
+              Bike
+            </h1>
             <img
               src={vwall}
               alt="vwall.png"
@@ -257,7 +265,7 @@ export class GetVehicles extends Component {
             xs={1}
             sm={2}
             md={4}
-            style={{ marginLeft: "7%", marginTop: "4%" }}
+            style={{ marginLeft: "7%", marginTop: "3%" }}
           >
             {this.state.bike.data?.map((v, k) => {
               return (
@@ -286,7 +294,7 @@ export class GetVehicles extends Component {
             onChange={this.setQuery}
             style={{
               marginLeft: "8%",
-              width: "80%",
+              width: "84%",
               fontSize: "25px",
             }}
           />
@@ -300,7 +308,7 @@ export class GetVehicles extends Component {
               border: "none",
               width: "24px",
               height: "24px",
-              right: "14%",
+              right: "10%",
               marginTop: "8px",
               position: "absolute",
               backgroundRepeat: "no-repeat",

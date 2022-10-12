@@ -9,12 +9,14 @@ import testi from "./img/testi.png";
 import Footer from "../../components/footer/footer";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import smCircle from "./img/sm-circle.png";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       vehicles: [],
+      login: false,
     };
   }
 
@@ -32,16 +34,20 @@ export class Home extends Component {
     this.getVehicles();
   }
 
+  isLog() {
+    this.setState({ login: true });
+  }
+
   render() {
     return (
       <main style={{ overflowX: "hidden" }}>
-        <Navbar home="true" />
+        <Navbar home="true" log={this.isLog} />
         <section className="bg-home">
-          <h1 className="h1Upper">
+          <h1 className="h1Upper pfdisplay">
             Explore and <br />
             Travel
           </h1>
-          <h5 className="h5css">Vehicle Finder</h5>
+          <h5 className="h5css nunito">Vehicle Finder</h5>
           <div className="rectangle" />
           <div className="flex">
             <Dropdowns
@@ -75,7 +81,12 @@ export class Home extends Component {
         </section>
 
         <section>
-          <h1 className="h1Lower">Popular in Town</h1>
+          <h1
+            className="h1Lower pfdisplay"
+            style={{ fontWeight: 600, letterSpacing: "1px" }}
+          >
+            Popular in Town
+          </h1>
           <Row xs={1} sm={2} md={4} className="rowCards">
             {this.state.vehicles.data?.map((v, k) => {
               return (
@@ -89,6 +100,11 @@ export class Home extends Component {
               );
             })}
           </Row>
+          <img
+            src={smCircle}
+            alt="sm-circle.png"
+            style={{ position: "absolute", right: "50%", marginTop: "10px" }}
+          />
         </section>
 
         <section className="testi">

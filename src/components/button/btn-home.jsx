@@ -7,7 +7,7 @@ function ButtonHome() {
   return (
     <Link to="/vehicles" style={{ textDecoration: "none" }}>
       <Button variant="warning" className="btnhome">
-        <b>Explore</b>
+        <b className="nunito">Explore</b>
       </Button>
     </Link>
   );

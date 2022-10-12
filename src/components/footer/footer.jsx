@@ -14,18 +14,18 @@ function Footer() {
       <div className="footerdiv1">
         <div className="footerdiv2">
           <img src={logo} alt="logo.jpg" />
-          <p className="pcss">
+          <p className="pcss mulish">
             Plan and book your perfect trip with <br />
             expert advice, travel tips for vehicle
             <br />
             information from us
           </p>
-          <p className="pcss">
+          <p className="pcss mulish">
             ©2020 Vehicle Rental Center. All rights reserved
           </p>
         </div>
 
-        <div className="footerdiv3">
+        <div className="footerdiv3 mulish">
           <ul>
             <h6 className="h6css">Destinations</h6>
             <li>Bali</li>
@@ -36,7 +36,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footerdiv3">
+        <div className="footerdiv3 mulish">
           <ul>
             <h6 className="h6css">Vehicle</h6>
             <li>Bike</li>
@@ -47,7 +47,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footerdiv3">
+        <div className="footerdiv3 mulish">
           <ul>
             <h6>Interests</h6>
             <li>Adventure Travel</li>

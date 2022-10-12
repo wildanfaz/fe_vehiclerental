@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import google from "./img/google.png";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/reducer/users";
 
 function FormLogin() {
+  const { isAuth } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pwdMsg, setPwdMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
   const [err, setErr] = useState(false);
   // const [msg, setMsg] = useState("");
-  const history = useHistory();
 
   const Login = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "https://fazdev-go-vehiclerental.herokuapp.com/api/v1/auth",
-        {
+      await axios
+        .post("/auth", {
           email: email,
           password: password,
-        }
-      );
-      history.push("/");
+        })
+        .then((res) => {
+          console.log(res.data.data);
+          const { token } = res.data.data;
+          dispatch(login(token));
+        });
     } catch (error) {
       if (error.response) {
         console.log(error.response.data);
@@ -39,6 +46,12 @@ function FormLogin() {
       }
     }
   };
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/");
+    }
+  }, [isAuth]);
 
   const checkEmail = () => {
     if (err && emailMsg.length > 0) {
@@ -71,7 +84,9 @@ function FormLogin() {
           className="inputform"
         />
         <div>{checkPassword()}</div>
-        <label style={{ color: "white", marginTop: "10px" }}>
+        <label
+          style={{ color: "white", marginTop: "10px", marginRight: "20%" }}
+        >
           <u>Forgot password?</u>
         </label>
         <input type="submit" value="Login" className="inputform submitlog" />
