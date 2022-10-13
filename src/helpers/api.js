@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {} from "react-redux";
+import { useSelector } from "react-redux";
 
 function Api(url = "") {
-  // const { token } = useSelector((state) => state.users);
+  const { token } = useSelector((state) => state.users);
 
   const [req, setReq] = useState({
     baseURL: process.env.REACT_APP_BASE_URL || url,
     headers: {
       "content-type": "application/json",
-      Authorization: `Bearer ${"token"}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -19,7 +19,7 @@ function Api(url = "") {
       ...req,
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${"token"}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   };

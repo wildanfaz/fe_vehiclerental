@@ -67,7 +67,7 @@ function FormLogin() {
 
   return (
     <div className="maincss">
-      <form className="formcss" onSubmit={Login}>
+      <div className="formcss">
         <input
           type="email"
           value={email}
@@ -89,14 +89,19 @@ function FormLogin() {
         >
           <u>Forgot password?</u>
         </label>
-        <input type="submit" value="Login" className="inputform submitlog" />
+        <input
+          type="button"
+          value="Login"
+          className="inputform submitlog"
+          onClick={Login}
+        />
         <div style={{ display: "flex" }}>
           <button className="inputform buttonGoogle">
             <img src={google} className="gpng" alt="google.png" />
             Login with Google
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

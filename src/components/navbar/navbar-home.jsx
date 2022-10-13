@@ -4,14 +4,20 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import eclEmail from "./img/ecl-email.png";
 import email from "./img/email.png";
 import tes from "./img/wl-1.jpeg";
 import { clickView } from "../../store/reducer/viewAll";
+import { logout, dataUser } from "../../store/reducer/users";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import useApi from "../../helpers/api";
 
 function HomeNavbar(props) {
+  const api = useApi();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.users);
   const [login, setLogin] = useState(false);
@@ -19,6 +25,19 @@ function HomeNavbar(props) {
 
   const clickVehicle = () => {
     dispatch(clickView(false));
+  };
+
+  const logOut = () => {
+    dispatch(logout());
+    navigate("/");
+  };
+
+  const getUser = async () => {
+    try {
+      api.req("/users").then((res) => console.log(res));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -82,7 +101,15 @@ function HomeNavbar(props) {
                 </p>
               </div>
               <div>
-                <img src={tes} alt="profile.png" className="circle" />
+                <img
+                  src={tes}
+                  alt="profile.png"
+                  className="circle"
+                  onClick={getUser}
+                />
+              </div>
+              <div className="logout" onClick={logOut}>
+                <FontAwesomeIcon icon={faRightFromBracket} size="2x" />
               </div>
             </div>
           ) : (
