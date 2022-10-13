@@ -34,7 +34,9 @@ function HomeNavbar(props) {
 
   const getUser = async () => {
     try {
-      api.req("/users").then((res) => console.log(res));
+      const { data } = await api.req("/users");
+      console.log(data.data);
+      dispatch(dataUser(data.data));
     } catch (error) {
       console.log(error);
     }
@@ -47,14 +49,14 @@ function HomeNavbar(props) {
         <Nav className="ms-auto">
           <Link
             to="/"
-            style={{ textDecoration: "none", marginLeft: "10px" }}
+            style={{ textDecoration: "none", marginLeft: "3px" }}
             className={props.home ? "choosen nunito" : "unChoosen nunito"}
           >
             Home
           </Link>
           <Link
             to="/vehicles"
-            style={{ textDecoration: "none", marginLeft: "10px" }}
+            style={{ textDecoration: "none", marginLeft: "3px" }}
             className={props.vehicles ? "choosen nunito" : "unChoosen nunito"}
             onClick={clickVehicle}
           >
@@ -62,14 +64,14 @@ function HomeNavbar(props) {
           </Link>
           <Link
             to="/histories"
-            style={{ textDecoration: "none", marginLeft: "10px" }}
+            style={{ textDecoration: "none", marginLeft: "3px" }}
             className={props.histories ? "choosen nunito" : "unChoosen nunito"}
           >
             History
           </Link>
           <Link
             to="/about"
-            style={{ textDecoration: "none", marginLeft: "10px" }}
+            style={{ textDecoration: "none", marginLeft: "3px" }}
             className={props.about ? "choosen nunito" : "unChoosen nunito"}
           >
             About
@@ -84,7 +86,7 @@ function HomeNavbar(props) {
                   height: "28px",
                   marginTop: "8px",
                   marginRight: "30px",
-                  marginLeft: "9vw",
+                  marginLeft: "60px",
                 }}
               >
                 <img src={eclEmail} alt="ecl-email.png" className="eclEmail" />
