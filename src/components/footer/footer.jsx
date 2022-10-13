@@ -49,7 +49,7 @@ function Footer() {
 
         <div className="footerdiv3 mulish">
           <ul>
-            <h6>Interests</h6>
+            <h6 className="h6css">Interests</h6>
             <li>Adventure Travel</li>
             <li>Art And Culture</li>
             <li>Wildlife And Nature</li>

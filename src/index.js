@@ -4,17 +4,23 @@ import App from "./router";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import { store } from "./store";
+import store from "./store";
 import { Provider } from "react-redux";
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+import { PersistGate } from "redux-persist/es/integration/react";
+import { persistStore } from "redux-persist";
+
+const persist = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persist}>
+      <App />
+    </PersistGate>
   </Provider>
 );
 
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

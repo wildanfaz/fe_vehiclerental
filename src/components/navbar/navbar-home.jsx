@@ -5,15 +5,21 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./img/logo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import eclEmail from "./img/ecl-email.png";
 import email from "./img/email.png";
-import tes from "./img/naofumi-wp-flare.jpg";
+import tes from "./img/wl-1.jpeg";
+import { clickView } from "../../store/reducer/viewAll";
 
 function HomeNavbar(props) {
+  const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.users);
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
+
+  const clickVehicle = () => {
+    dispatch(clickView(false));
+  };
 
   return (
     <Navbar bg="light" variant="light" expand="md">
@@ -31,6 +37,7 @@ function HomeNavbar(props) {
             to="/vehicles"
             style={{ textDecoration: "none", marginLeft: "10px" }}
             className={props.vehicles ? "choosen nunito" : "unChoosen nunito"}
+            onClick={clickVehicle}
           >
             Vehicle Type
           </Link>

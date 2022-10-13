@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Navbar from "../../components/navbar/navbar-home";
 import Footer from "../../components/footer/footer";
@@ -7,112 +8,120 @@ import searchLogo from "./img/search.png";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
 import vwall from "./img/vwall.png";
+import { useDispatch, useSelector } from "react-redux";
+import { clickView } from "../../store/reducer/viewAll";
 
-export class GetVehicles extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allVehicle: [],
-      vehicles: [],
-      cars: [],
-      motorbike: [],
-      bike: [],
-      searchResult: null,
-      searchQuery: "",
-      click: false,
-      viewAll: false,
-    };
-  }
+function Vehicles() {
+  const { isView } = useSelector((state) => state.view);
+  const [allVehicle, setAllVehicle] = useState([]);
+  const [vehicles, setVehicles] = useState([]);
+  const [cars, setCars] = useState([]);
+  const [motorbike, setMotorbike] = useState([]);
+  const [bike, setBike] = useState([]);
+  const [searchResult, setSearchResult] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  //   const [click, setClick] = useState(false);
+  const [viewAll, setViewAll] = useState(false);
+  const dispatch = useDispatch();
 
-  getAllVehicle = async () => {
+  const getAllVehicle = async () => {
     try {
       const url = "/vehicles";
       const { data } = await axios.get(url);
-      this.setState({ allVehicle: data });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  getVehicles = async () => {
-    try {
-      const url = "/vehicles/popular/0";
-      const { data } = await axios.get(url);
-      this.setState({ vehicles: data });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  getCars = async () => {
-    try {
-      const url = "/vehicles/cars";
-      const { data } = await axios.get(url);
-      this.setState({ cars: data });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  getMotorbike = async () => {
-    try {
-      const url = "/vehicles/motorbike";
-      const { data } = await axios.get(url);
-      this.setState({ motorbike: data });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  getBike = async () => {
-    try {
-      const url = "/vehicles/bike";
-      const { data } = await axios.get(url);
-      this.setState({ bike: data });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  searchVehicles = async () => {
-    try {
-      this.clickTrue();
-      const url2 = `/vehicles/search`;
-
-      const res = await axios.get(url2, {
-        params: { vehicle_name: this.state.searchQuery },
-      });
-
-      const result = await res.data;
-
-      this.setState({ searchResult: result });
+      setAllVehicle(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  componentDidMount() {
-    this.getAllVehicle();
-    this.getVehicles();
-    this.getCars();
-    this.getMotorbike();
-    this.getBike();
-  }
-
-  clickTrue = () => {
-    this.setState({ click: true });
+  const getVehicles = async () => {
+    try {
+      const url = "/vehicles/popular/0";
+      const { data } = await axios.get(url);
+      setVehicles(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  clickView = () => {
-    this.setState({ viewAll: true });
+  const getCars = async () => {
+    try {
+      const url = "/vehicles/cars";
+      const { data } = await axios.get(url);
+      setCars(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  setQuery = (event) => {
-    this.setState({ searchQuery: event.target.value });
+  const getMotorbike = async () => {
+    try {
+      const url = "/vehicles/motorbike";
+      const { data } = await axios.get(url);
+      setMotorbike(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  card = () => {
-    if (this.state.searchResult) {
+  const getBike = async () => {
+    try {
+      const url = "/vehicles/bike";
+      const { data } = await axios.get(url);
+      setBike(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const searchVehicles = async () => {
+    try {
+      this.clickTrue();
+      const url2 = `/vehicles/search`;
+
+      const res = await axios.get(url2, {
+        params: { vehicle_name: searchQuery },
+      });
+
+      const result = await res.data;
+
+      setSearchResult(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllVehicle();
+    getVehicles();
+    getCars();
+    getMotorbike();
+    getBike();
+  });
+
+  //   const clickTrue = () => {
+  //     setClick(true);
+  //   };
+
+  const onClickView = () => {
+    setViewAll(true);
+    dispatch(clickView(true));
+  };
+
+  const setQuery = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  useEffect(() => {
+    if (isView) {
+      setViewAll(true);
+    } else {
+      setViewAll(false);
+    }
+  }, [isView]);
+
+  const card = () => {
+    if (searchResult) {
       return (
         <div>
           <Row
@@ -121,7 +130,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "4%" }}
           >
-            {this.state.searchResult.data?.map((v, k) => {
+            {searchResult.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -135,7 +144,7 @@ export class GetVehicles extends Component {
           </Row>
         </div>
       );
-    } else if (this.state.viewAll) {
+    } else if (viewAll) {
       return (
         <div>
           <Row
@@ -144,7 +153,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "4%" }}
           >
-            {this.state.allVehicle.data?.map((v, k) => {
+            {allVehicle.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -169,7 +178,7 @@ export class GetVehicles extends Component {
               src={vwall}
               alt="vwall.png"
               className="vwall hvr-grow-shadow"
-              onClick={this.clickView}
+              onClick={onClickView}
             />
           </div>
           <Row
@@ -178,7 +187,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "3%" }}
           >
-            {this.state.vehicles.data?.map((v, k) => {
+            {vehicles.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -199,7 +208,7 @@ export class GetVehicles extends Component {
               src={vwall}
               alt="vwall.png"
               className="vwall hvr-grow-shadow"
-              onClick={this.clickView}
+              onClick={onClickView}
             />
           </div>
           <Row
@@ -208,7 +217,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "3%" }}
           >
-            {this.state.cars.data?.map((v, k) => {
+            {cars.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -228,7 +237,7 @@ export class GetVehicles extends Component {
               src={vwall}
               alt="vwall.png"
               className="vwall hvr-grow-shadow"
-              onClick={this.clickView}
+              onClick={onClickView}
             />
           </div>
           <Row
@@ -237,7 +246,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "3%" }}
           >
-            {this.state.motorbike.data?.map((v, k) => {
+            {motorbike.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -257,7 +266,7 @@ export class GetVehicles extends Component {
               src={vwall}
               alt="vwall.png"
               className="vwall hvr-grow-shadow"
-              onClick={this.clickView}
+              onClick={onClickView}
             />
           </div>
 
@@ -267,7 +276,7 @@ export class GetVehicles extends Component {
             md={4}
             style={{ marginLeft: "7%", marginTop: "3%" }}
           >
-            {this.state.bike.data?.map((v, k) => {
+            {bike.data?.map((v, k) => {
               return (
                 <Cards
                   key={k}
@@ -284,42 +293,40 @@ export class GetVehicles extends Component {
     }
   };
 
-  render() {
-    return (
-      <div style={{ overflowX: "hidden" }}>
-        <Navbar vehicles="true" />;
-        <form style={{ display: "flex" }}>
-          <input
-            type="text"
-            onChange={this.setQuery}
-            style={{
-              marginLeft: "8%",
-              width: "84%",
-              fontSize: "25px",
-            }}
-          />
-          <input
-            type="button"
-            onClick={this.searchVehicles}
-            style={{
-              backgroundImage: `url(${searchLogo})`,
-              backgroundColor: "transparent",
-              backgroundSize: "100% 100%",
-              border: "none",
-              width: "24px",
-              height: "24px",
-              right: "10%",
-              marginTop: "8px",
-              position: "absolute",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </form>
-        {this.card()}
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div style={{ overflowX: "hidden" }}>
+      <Navbar vehicles="true" />;
+      <form style={{ display: "flex" }}>
+        <input
+          type="text"
+          onChange={setQuery}
+          style={{
+            marginLeft: "8%",
+            width: "84%",
+            fontSize: "25px",
+          }}
+        />
+        <input
+          type="button"
+          onClick={searchVehicles}
+          style={{
+            backgroundImage: `url(${searchLogo})`,
+            backgroundColor: "transparent",
+            backgroundSize: "100% 100%",
+            border: "none",
+            width: "24px",
+            height: "24px",
+            right: "10%",
+            marginTop: "8px",
+            position: "absolute",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      </form>
+      {card()}
+      <Footer />
+    </div>
+  );
 }
 
-export default GetVehicles;
+export default Vehicles;
