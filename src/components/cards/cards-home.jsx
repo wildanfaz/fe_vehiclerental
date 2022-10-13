@@ -11,10 +11,10 @@ function CardsHome(props) {
         <Card className="crd">
           <Card.Img variant="top" src={props.img} className="imgCss1" />
           <div className="title">
-            <div style={{ marginTop: "26px" }}>
+            <div style={{ marginTop: "2vw" }}>
               <h5
                 style={{
-                  marginTop: "20%",
+                  marginTop: "0%",
                   marginBottom: "0%",
                   fontSize: "11px",
                   fontWeight: "600",
