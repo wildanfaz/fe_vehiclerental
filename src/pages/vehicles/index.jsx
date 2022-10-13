@@ -18,9 +18,9 @@ function Vehicles() {
   const [cars, setCars] = useState([]);
   const [motorbike, setMotorbike] = useState([]);
   const [bike, setBike] = useState([]);
-  const [searchResult, setSearchResult] = useState(null);
+  const [searchResult, setSearchResult] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  //   const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false);
   const [viewAll, setViewAll] = useState(false);
   const dispatch = useDispatch();
 
@@ -76,13 +76,13 @@ function Vehicles() {
 
   const searchVehicles = async () => {
     try {
-      this.clickTrue();
+      clickTrue();
       const url2 = `/vehicles/search`;
-
       const res = await axios.get(url2, {
         params: { vehicle_name: searchQuery },
       });
 
+      dispatch(clickView(true));
       const result = await res.data;
 
       setSearchResult(result);
@@ -99,9 +99,9 @@ function Vehicles() {
     getBike();
   });
 
-  //   const clickTrue = () => {
-  //     setClick(true);
-  //   };
+  const clickTrue = () => {
+    setClick(true);
+  };
 
   const onClickView = () => {
     setViewAll(true);
@@ -112,16 +112,18 @@ function Vehicles() {
     setSearchQuery(event.target.value);
   };
 
+  //**back
   useEffect(() => {
     if (isView) {
       setViewAll(true);
     } else {
+      setClick(false);
       setViewAll(false);
     }
   }, [isView]);
 
   const card = () => {
-    if (searchResult) {
+    if (click) {
       return (
         <div>
           <Row
