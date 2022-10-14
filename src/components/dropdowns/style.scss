@@ -16,3 +16,17 @@
   right: 10%;
   top: 40%;
 }
+
+.linkto {
+  text-decoration: none;
+  color: white;
+}
+
+.linkto :hover {
+  text-decoration: none;
+  color: white;
+}
+
+.act :active {
+  background-color: darkgray;
+}

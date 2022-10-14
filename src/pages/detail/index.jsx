@@ -12,13 +12,13 @@ import min from "./img/min.png";
 import emote from "./img/emote.png";
 
 function DetailVehicle() {
-  const path = useLocation();
+  const location = useLocation();
   const [detail, setDetail] = useState([]);
   const [cap, setCap] = useState("");
   const [num, setNum] = useState(0);
 
   const getDetail = async () => {
-    const { data } = await axios.get(`${path.pathname}`);
+    const { data } = await axios.get(`${location.pathname}`);
     setDetail(data);
   };
 

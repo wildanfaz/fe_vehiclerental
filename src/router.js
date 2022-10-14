@@ -5,6 +5,8 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 import Vehicles from "./pages/vehicles";
 import Detail from "./pages/detail";
+import Location from "./pages/location";
+import Type from "./pages/type";
 
 function Routers() {
   return (
@@ -15,6 +17,12 @@ function Routers() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/vehicles/" element={<Vehicles />} />
         <Route exact path="/vehicles/detail/:idv" element={<Detail />} />
+        <Route
+          exact
+          path="/vehicles/location/:location"
+          element={<Location />}
+        />
+        <Route exact path="/vehicles/type/:type" element={<Type />} />
       </Routes>
     </BrowserRouter>
   );

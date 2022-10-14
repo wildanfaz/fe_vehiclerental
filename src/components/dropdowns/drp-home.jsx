@@ -4,6 +4,57 @@ import Dropdown from "react-bootstrap/Dropdown";
 import icon from "./img/icon.png";
 
 function DropdownsHome(props) {
+  const location = () => {
+    if (props.text === "Location") {
+      return (
+        <Dropdown.Menu variant="dark">
+          <Dropdown.Item>
+            <div className="nunito">{props.list1}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list2}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list3}</div>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      );
+    } else if (props.text === "Type") {
+      return (
+        <Dropdown.Menu variant="dark">
+          <Dropdown.Item>
+            <div className="nunito">{props.list1}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list2}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list3}</div>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      );
+    } else {
+      return (
+        <Dropdown.Menu variant="dark">
+          <Dropdown.Item>
+            <div className="nunito">{props.list1}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list2}</div>
+          </Dropdown.Item>
+
+          <Dropdown.Item>
+            <div className="nunito">{props.list3}</div>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      );
+    }
+  };
   return (
     <Dropdown>
       <Dropdown.Toggle
@@ -16,18 +67,7 @@ function DropdownsHome(props) {
           <img src={icon} alt="icon.png" className="iconhome" />
         </div>
       </Dropdown.Toggle>
-
-      <Dropdown.Menu variant="dark">
-        <Dropdown.Item href="#/action-1">
-          <div className="nunito">{props.list1}</div>
-        </Dropdown.Item>
-        <Dropdown.Item href="#/action-2">
-          <div className="nunito">{props.list2}</div>
-        </Dropdown.Item>
-        <Dropdown.Item href="#/action-3">
-          <div className="nunito">{props.list3}</div>
-        </Dropdown.Item>
-      </Dropdown.Menu>
+      {location()}
     </Dropdown>
   );
 }

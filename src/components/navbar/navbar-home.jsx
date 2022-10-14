@@ -32,7 +32,8 @@ function HomeNavbar(props) {
     navigate("/");
   };
 
-  const getUser = async () => {
+  const getUser = async (e) => {
+    e.preventDefault();
     try {
       const { data } = await api.req("/users");
       console.log(data.data);
