@@ -63,12 +63,7 @@ function Home() {
             list2="Yogyakarta"
             list3="Malang"
           />
-          <Dropdowns
-            text="Type"
-            list1="Car"
-            list2="Motorcycle"
-            list3="Bicycle"
-          />
+          <Dropdowns text="Type" list1="Cars" list2="Motorbike" list3="Bike" />
           <Dropdowns text="Payment" list1="PayPal" list2="OVO" list3="GoPay" />
           <Dropdowns
             text="Date"

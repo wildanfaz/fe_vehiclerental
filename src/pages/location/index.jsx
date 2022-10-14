@@ -8,13 +8,17 @@ import Cards from "../../components/cards/cards-home";
 import { Row } from "react-bootstrap";
 
 function Location() {
-  const [vehicleLocation, setVehicleLocation] = useState(null);
+  const [vehicleLocation, setVehicleLocation] = useState([]);
   const api = useApi();
   const location = useLocation();
-  const SortLocation = () => {
-    const { data } = api.req(`${location.pathname}`);
-    console.log(data);
-    setVehicleLocation(data);
+
+  const SortLocation = async () => {
+    try {
+      const { data } = await api.req(`${location.pathname}`);
+      setVehicleLocation(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +35,7 @@ function Location() {
         {location.pathname.replace("/vehicles/location/", "")}
       </h1>
       <Row xs={1} sm={2} md={4} className="rowCards">
-        {vehicleLocation?.map((v, k) => {
+        {vehicleLocation.data?.map((v, k) => {
           return (
             <Cards
               key={k}
