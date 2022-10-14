@@ -8,7 +8,7 @@ function DropdownsHome(props) {
     if (props.text === "Location") {
       return (
         <Dropdown.Menu variant="dark">
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/location/${props.list1}`}>
             <div className="nunito">{props.list1}</div>
           </Dropdown.Item>
 
