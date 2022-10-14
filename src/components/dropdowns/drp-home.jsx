@@ -12,11 +12,11 @@ function DropdownsHome(props) {
             <div className="nunito">{props.list1}</div>
           </Dropdown.Item>
 
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/location/${props.list2}`}>
             <div className="nunito">{props.list2}</div>
           </Dropdown.Item>
 
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/location/${props.list3}`}>
             <div className="nunito">{props.list3}</div>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -24,15 +24,15 @@ function DropdownsHome(props) {
     } else if (props.text === "Type") {
       return (
         <Dropdown.Menu variant="dark">
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/type/${props.list1}`}>
             <div className="nunito">{props.list1}</div>
           </Dropdown.Item>
 
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/type/${props.list2}`}>
             <div className="nunito">{props.list2}</div>
           </Dropdown.Item>
 
-          <Dropdown.Item>
+          <Dropdown.Item href={`/vehicles/type/${props.list3}`}>
             <div className="nunito">{props.list3}</div>
           </Dropdown.Item>
         </Dropdown.Menu>

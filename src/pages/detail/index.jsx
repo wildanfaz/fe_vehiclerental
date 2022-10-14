@@ -10,6 +10,9 @@ import rarrow from "./img/r-arrow.png";
 import plus from "./img/plus.png";
 import min from "./img/min.png";
 import emote from "./img/emote.png";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function DetailVehicle() {
   const location = useLocation();
@@ -18,8 +21,12 @@ function DetailVehicle() {
   const [num, setNum] = useState(0);
 
   const getDetail = async () => {
-    const { data } = await axios.get(`${location.pathname}`);
-    setDetail(data);
+    try {
+      const { data } = await axios.get(`${location.pathname}`);
+      setDetail(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const capacity = () => {
@@ -62,15 +69,15 @@ function DetailVehicle() {
       <div
         style={{
           display: "flex",
-          marginLeft: "6%",
-          marginTop: "4%",
-          marginBottom: "1%",
+          marginLeft: "6vw",
+          marginTop: "4vh",
+          marginBottom: "5vh",
         }}
       >
         <img
           src={detail.data?.image}
           alt={detail.data?.image}
-          style={{ height: "60vh", width: "50%", borderRadius: "10px" }}
+          style={{ maxHeight: "60vh", width: "50%", borderRadius: "10px" }}
         />
 
         <div style={{ marginLeft: "10%", marginTop: "-1%" }}>
@@ -105,13 +112,8 @@ function DetailVehicle() {
           marginBottom: "30px",
         }}
       >
-        <img
-          src={larrow}
-          alt="larrow.png"
-          style={{ width: "20px", height: "30px" }}
-          className="larrow"
-        />
         <div className="divImage">
+          <img src={larrow} alt="larrow.png" className="larrow" />
           <img
             src={detail.data?.image}
             alt={detail.data?.image}
@@ -122,58 +124,70 @@ function DetailVehicle() {
             alt={detail.data?.image}
             className="bottomImg"
           />
+          <img src={rarrow} alt="rarrow.png" className="rarrow" />
         </div>
-        <img
-          src={rarrow}
-          alt="rarrow.png"
-          style={{ width: "20px", height: "30px" }}
-          className="rarrow"
-        />
-        <div style={{ display: "flex", marginTop: "80px" }}>
-          <div
-            style={{
-              width: "50px",
-              height: "50px",
-              backgroundColor: "#FFCD61",
-              textAlign: "center",
-              marginRight: "100px",
-              marginLeft: "20px",
-            }}
-            onClick={plusBtn}
-          >
-            <img src={plus} alt="plus.png" style={{ marginTop: "13px" }} />
-          </div>
-          <h1 style={{ fontWeight: "bold" }}>{num}</h1>
-          <div
-            style={{
-              width: "50px",
-              height: "50px",
-              backgroundColor: "#CBCBD433",
-              textAlign: "center",
-              marginLeft: "100px",
-            }}
-            onClick={minBtn}
-          >
-            <img src={min} alt="min.png" style={{ marginTop: "20px" }} />
-          </div>
+
+        <div>
+          <Container style={{ marginTop: "40px", marginLeft: "2vw" }}>
+            <Row style={{ gap: "55px" }}>
+              <Col>
+                <div
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "#FFCD61",
+                    textAlign: "center",
+                  }}
+                  onClick={plusBtn}
+                >
+                  <img
+                    src={plus}
+                    alt="plus.png"
+                    style={{ marginTop: "13px" }}
+                  />
+                </div>
+              </Col>
+
+              <Col>
+                <h1
+                  style={{
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                >
+                  {num}
+                </h1>
+              </Col>
+
+              <Col>
+                <div
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "#CBCBD433",
+                    textAlign: "center",
+                  }}
+                  onClick={minBtn}
+                >
+                  <img src={min} alt="min.png" style={{ marginTop: "20px" }} />
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
       <div
         style={{ display: "flex", marginLeft: "80px", marginBottom: "50px" }}
       >
         <div>
-          <form>
-            <button className="btn1detail">Chat Admin</button>
-            <button className="btn2detail">Reservation</button>
-            <button className="btn3detail">
-              <img
-                src={emote}
-                alt="emote.png"
-                style={{ marginRight: "20px" }}
-              />
-              Like
-            </button>
-          </form>
+          <button className="btn1detail">Chat Admin</button>
+          <button className="btn2detail">Reservation</button>
+          <button className="btn3detail">
+            <img src={emote} alt="emote.png" style={{ marginRight: "10px" }} />
+            Like
+          </button>
         </div>
       </div>
       <Footer />

@@ -1,31 +1,33 @@
 .price {
   margin-top: 40px;
-  margin-left: 40%;
-  font-size: 30px;
+  margin-left: 25px;
+  font-size: 3vw;
   font-weight: bold;
 }
 
 .divImage {
-  margin-top: 0%;
-  margin-left: 10%;
+  margin-top: -1%;
+  margin-left: 9vw;
+  margin-right: 10vw;
 }
 
 .bottomImg {
-  width: 20%;
   border-radius: 10px;
-  margin-left: 3%;
+  width: 200px;
+  height: 130px;
+  margin: 10px;
 }
 
 .rarrow {
-  margin-top: 4%;
-  margin-right: 10%;
-  margin-left: -40% !important;
+  width: 20px;
+  height: 30px;
+  margin-left: 20px;
 }
 
 .larrow {
-  margin-top: 4%;
-  margin-right: -10% !important;
-  margin-left: 8%;
+  width: 20px;
+  height: 30px;
+  margin-right: 20px;
 }
 
 .btn1detail {
@@ -40,6 +42,7 @@
   margin-right: 60px;
   font-weight: bold;
   width: 350px;
+  height: 70px;
 }
 
 .btn2detail {
@@ -53,18 +56,19 @@
   font-weight: bold;
   margin-right: 60px;
   width: 350px;
+  height: 70px;
 }
 
 .btn3detail {
   font-size: large;
   border-radius: 10px;
-  margin-top: 20px;
   border: none;
   padding: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #393939;
   color: #ffcd61;
   font-weight: bold;
-  width: 205px;
+  width: 200px;
+  height: 70px;
 }
