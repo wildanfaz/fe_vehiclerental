@@ -1,0 +1,35 @@
+.stylev1 {
+  text-align: center;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: black;
+  font-weight: 600;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.stylev2 {
+  text-align: center;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: black;
+  font-weight: 600;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgb(229, 221, 221);
+}
+
+.hover {
+  --c: #000000; /* the color */
+
+  color: #0000;
+  background: linear-gradient(90deg, #fff 50%, var(--c) 0)
+      calc(100% - var(--_p, 0%)) / 200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) 100% no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 0.3s;
+}
+.hover:hover {
+  --_p: 100%;
+}

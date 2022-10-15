@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -19,7 +20,7 @@ function HomeNavbar(props) {
   const api = useApi();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isAuth } = useSelector((state) => state.users);
+  const { isAuth, data } = useSelector((state) => state.users);
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
 
@@ -32,16 +33,32 @@ function HomeNavbar(props) {
     navigate("/");
   };
 
-  const getUser = async (e) => {
-    e.preventDefault();
+  const getUser = async () => {
     try {
       const { data } = await api.req("/users");
-      console.log(data.data);
       dispatch(dataUser(data.data));
     } catch (error) {
-      console.log(error);
+      logOut();
     }
   };
+
+  const isAdmin = () => {
+    if (data.role === "admin" && isAuth) {
+      return (
+        <Link
+          to="/admin"
+          style={{ textDecoration: "none", marginLeft: "3px" }}
+          className={props.admin ? "choosen nunito" : "unChoosen nunito"}
+        >
+          Admin
+        </Link>
+      );
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <Navbar bg="light" variant="light" expand="md">
@@ -77,6 +94,7 @@ function HomeNavbar(props) {
           >
             About
           </Link>
+          {isAdmin()}
           {isAuth ? (
             <div style={{ display: "flex" }}>
               <div
@@ -104,12 +122,7 @@ function HomeNavbar(props) {
                 </p>
               </div>
               <div>
-                <img
-                  src={tes}
-                  alt="profile.png"
-                  className="circle"
-                  onClick={getUser}
-                />
+                <img src={tes} alt="profile.png" className="circle" />
               </div>
               <div className="logout" onClick={logOut}>
                 <FontAwesomeIcon icon={faRightFromBracket} size="2x" />

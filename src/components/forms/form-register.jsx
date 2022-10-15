@@ -10,12 +10,12 @@ function FormRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [data, setData] = useState();
+  const [dataReg, setDataReg] = useState({ name: "", email: "", password: "" });
   // const [msg, setMsg] = useState("");
 
   const Register = (e) => {
     e.preventDefault();
-    setData({
+    setDataReg({
       name: name,
       email: email,
       password: password,
@@ -25,7 +25,7 @@ function FormRegister() {
       .req({
         method: "POST",
         url: "/users",
-        data: { data },
+        data: dataReg,
       })
       .then((res) => {
         console.log(res.data);

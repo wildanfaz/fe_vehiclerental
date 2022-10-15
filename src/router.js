@@ -7,6 +7,7 @@ import Vehicles from "./pages/vehicles";
 import Detail from "./pages/detail";
 import Location from "./pages/location";
 import Type from "./pages/type";
+import Admin from "./pages/admin";
 
 function Routers() {
   return (
@@ -23,6 +24,7 @@ function Routers() {
           element={<Location />}
         />
         <Route exact path="/vehicles/type/:type" element={<Type />} />
+        <Route exact path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
