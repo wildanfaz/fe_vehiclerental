@@ -6,7 +6,13 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-function Delete() {
+function Delete(props) {
+  const response = () => {
+    if (props.res) {
+      return <p>Success Delete Data</p>;
+    }
+  };
+
   return (
     <Container>
       <Form.Group
@@ -18,14 +24,24 @@ function Delete() {
           Vehicle Id
         </Form.Label>
         <Col sm="9">
-          <Form.Control type="text" placeholder="ex : 3" />
+          <Form.Control
+            type="text"
+            placeholder="ex : 3"
+            onChange={(e) => props.vid(e.target.value)}
+          />
         </Col>
 
         <Col>
-          <Button variant="outline-dark" size="lg" style={{ width: "14vw" }}>
+          <Button
+            variant="outline-dark"
+            size="lg"
+            style={{ width: "14vw", textAlign: "center", fontSize: "2vw" }}
+            onClick={props.delete}
+          >
             Delete
           </Button>
         </Col>
+        {response()}
       </Form.Group>
     </Container>
   );

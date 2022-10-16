@@ -18,6 +18,9 @@ function Admin() {
   const [update1, setUpdate1] = useState(false);
   const [delete1, setDelete1] = useState(false);
   const [successAdd, setSuccessAdd] = useState(false);
+  const [successUpdate, setSuccessUpdate] = useState(false);
+  const [successDelete, setSuccessDelete] = useState(false);
+  const [vehicleId, setVehicleId] = useState("");
   const [addData, setAddData] = useState({
     vehiclename: "",
     location: "",
@@ -30,8 +33,19 @@ function Admin() {
     image: null,
   });
 
-  const Add = async () => {
-    console.log("wkwk", addData);
+  const [updateData, setUpdateData] = useState({
+    vehicle_name: "",
+    location: "",
+    description: "",
+    price: 0,
+    status: "",
+    stock: 0,
+    category: "",
+    rating: 0,
+    image: "",
+  });
+
+  const Addv1 = async () => {
     try {
       const formAdd = new FormData();
       for (const key in addData) {
@@ -49,6 +63,43 @@ function Admin() {
       }).then((res) => {
         console.log(res);
         setSuccessAdd(true);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const Updatev1 = async () => {
+    try {
+      await axios({
+        method: "PUT",
+        url: `/vehicles/${vehicleId}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        data: updateData,
+      }).then((res) => {
+        console.log(res);
+        setSuccessUpdate(true);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const Deletev1 = async () => {
+    try {
+      await axios({
+        method: "DELETE",
+        url: `/vehicles/${vehicleId}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => {
+        console.log(res);
+        setSuccessDelete(true);
       });
     } catch (error) {
       console.log(error);
@@ -79,14 +130,24 @@ function Admin() {
         <Create
           data={addData}
           setData={setAddData}
-          add={Add}
+          add={Addv1}
           res={successAdd}
         />
       );
     } else if (update1) {
-      return <Update />;
+      return (
+        <Update
+          data={updateData}
+          setData={setUpdateData}
+          update={Updatev1}
+          res={successUpdate}
+          vid={setVehicleId}
+        />
+      );
     } else {
-      return <Delete />;
+      return (
+        <Delete delete={Deletev1} res={successDelete} vid={setVehicleId} />
+      );
     }
   };
 

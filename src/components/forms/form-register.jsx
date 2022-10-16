@@ -44,7 +44,7 @@ function FormRegister() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
-          className="inputformReg"
+          className="inputform"
         />
         <input
           type="email"

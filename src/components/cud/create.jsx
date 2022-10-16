@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function Create(props) {
-  let data = { ...props.data };
+  const data = { ...props.data };
   const input = (e) => {
     e.preventDefault();
     if (e.target.name === "image") {
@@ -15,6 +15,7 @@ function Create(props) {
     } else {
       data[e.target.name] = e.target.value;
     }
+    props.setData(data);
   };
 
   const response = () => {
@@ -25,7 +26,6 @@ function Create(props) {
 
   const sendData = (e) => {
     e.preventDefault();
-    props.setData(data);
     props.add();
   };
 

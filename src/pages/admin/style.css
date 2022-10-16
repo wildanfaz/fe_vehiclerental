@@ -20,6 +20,7 @@
 }
 
 .hover {
+  text-align: center;
   --c: #000000; /* the color */
 
   color: #0000;
