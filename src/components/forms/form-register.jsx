@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import google from "./img/google.png";
 import useApi from "../../helpers/api";
 
-function FormRegister() {
+function FormRegister(props) {
   const api = useApi();
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -15,11 +16,6 @@ function FormRegister() {
 
   const Register = (e) => {
     e.preventDefault();
-    setDataReg({
-      name: name,
-      email: email,
-      password: password,
-    });
 
     api
       .req({
@@ -36,36 +32,56 @@ function FormRegister() {
       });
   };
 
+  const input = (e) => {
+    e.preventDefault();
+    if (e.target.name === "name") {
+      setName(e.target.value);
+    } else if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else {
+      setPassword(e.target.value);
+    }
+  };
+
+  const dataUser = () => {
+    setDataReg({
+      name: name,
+      email: email,
+      password: password,
+    });
+  };
+
   return (
     <div className="maincss">
       <div className="formcss">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="inputform"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          className="inputform"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          className="inputform"
-        />
-        <input
-          type="button"
-          value="Sign Up"
-          className="inputform btnreg"
-          onClick={Register}
-        />
+        <form onSubmit={Register}>
+          <input
+            type="text"
+            onChange={input}
+            placeholder="Name"
+            className="inputform"
+            name="name"
+            required
+          />
+          <input
+            type="email"
+            onChange={input}
+            placeholder="Email"
+            className="inputform"
+            name="email"
+            required
+          />
+          <input
+            type="password"
+            onChange={input}
+            placeholder="Password"
+            className="inputform"
+            required
+          />
+          <button className="inputform btnreg" onClick={dataUser}>
+            Sign Up
+          </button>
+        </form>
         <div style={{ display: "flex" }}>
           <button className="inputform buttonGoogle">
             <img src={google} className="gpng" alt="google.png" />
