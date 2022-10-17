@@ -39,7 +39,7 @@ function Update(props) {
         className="mb-3"
         style={{ gap: "15px", marginLeft: "3vw" }}
       >
-        <Form.Label column sm="2">
+        {/* <Form.Label column sm="2">
           Vehicle Id
         </Form.Label>
         <Col sm="9">
@@ -48,7 +48,7 @@ function Update(props) {
             placeholder="ex : 3"
             onChange={(e) => props.vid(e.target.value)}
           />
-        </Col>
+        </Col> */}
 
         <Form.Label column sm="2">
           Vehicle Name

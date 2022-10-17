@@ -57,7 +57,9 @@ function HomeNavbar(props) {
   };
 
   useEffect(() => {
-    getUser();
+    if (isAuth) {
+      getUser();
+    }
   }, []);
 
   return (

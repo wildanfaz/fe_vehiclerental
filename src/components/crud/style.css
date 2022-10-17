@@ -1,0 +1,97 @@
+.get1 {
+  height: auto;
+  min-height: 16vmax;
+  max-height: 30vmax;
+  background-color: rgb(255, 247, 247);
+  border-right-style: solid;
+  border-left-style: solid;
+  border-radius: 8px;
+  margin-bottom: 3vmin;
+}
+
+/* .coltop {
+  max-height: 55px;
+  background-color: antiquewhite;
+} */
+
+.vehicleID {
+  border-style: solid;
+  text-align: center;
+  max-height: 5vmin;
+  height: auto;
+  width: 20vw;
+  font-size: 1.5vw;
+  border-radius: 8px;
+  background-color: rgb(246, 203, 203);
+  margin-bottom: 3vmin;
+}
+
+.colvh {
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
+  border-style: solid;
+  border-radius: 8px;
+  height: 15vmax;
+  background-size: 100% 100%;
+}
+
+/* .hg {
+} */
+
+/* @media (max-width: 320) {
+  .pricefont{}
+} */
+
+.pricefont {
+  margin-top: 1.5vmin;
+  font-size: 1.8vmax;
+}
+
+.fonts {
+  margin-top: 1.5vmin;
+  font-size: 1.8vmax;
+}
+
+.pfont {
+  font-size: 1.5vmax;
+}
+
+.updateDelete {
+  padding: 2vmin;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: black;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  font-size: 3vmin;
+}
+
+.updateDelete:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.vehicleup {
+  text-align: center !important;
+  border-style: solid;
+  border-radius: 8px;
+  width: 55vmin !important;
+}
+
+.imgLink {
+  padding: 5px;
+  border-style: solid;
+  border-radius: 8px;
+  margin: 3vmin;
+  font-weight: 600;
+}
+
+@media (max-width: 314px) {
+  .cssfl {
+    display: flex;
+    gap: 5vmin;
+  }
+}

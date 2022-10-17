@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./style.css";
 import Container from "react-bootstrap/Container";
@@ -20,7 +21,7 @@ function Delete(props) {
         className="mb-3"
         style={{ gap: "15px", marginLeft: "3vw" }}
       >
-        <Form.Label column sm="2">
+        {/* <Form.Label column sm="2">
           Vehicle Id
         </Form.Label>
         <Col sm="9">
@@ -29,7 +30,7 @@ function Delete(props) {
             placeholder="ex : 3"
             onChange={(e) => props.vid(e.target.value)}
           />
-        </Col>
+        </Col> */}
 
         <Col>
           <Button

@@ -16,7 +16,7 @@ function Routers() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/vehicles/" element={<Vehicles />} />
+        <Route exact path="/vehicles" element={<Vehicles />} />
         <Route exact path="/vehicles/detail/:idv" element={<Detail />} />
         <Route
           exact

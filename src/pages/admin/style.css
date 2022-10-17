@@ -19,6 +19,17 @@
   background-color: rgb(229, 221, 221);
 }
 
+.colup {
+  border-style: solid;
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 3vmin;
+  text-align: center !important;
+  width: 30vw !important;
+  font-weight: 600;
+  padding: 1vmin;
+}
+
 .hover {
   text-align: center;
   --c: #000000; /* the color */

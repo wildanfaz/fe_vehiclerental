@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import auth from "../../helpers/private";
 import Navbar from "../../components/navbar/navbar-home";
@@ -6,21 +6,25 @@ import Footer from "../../components/footer/footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Create from "../../components/cud/create";
-import Update from "../../components/cud/update";
-import Delete from "../../components/cud/delete";
+import Create from "../../components/crud/create";
+import Read from "../../components/crud/read";
+import Update from "../../components/crud/update";
+import Delete from "../../components/crud/delete";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
 function Admin() {
   const { token } = useSelector((state) => state.users);
   const [create1, setCreate1] = useState(true);
+  const [read1, setRead1] = useState(false);
   const [update1, setUpdate1] = useState(false);
   const [delete1, setDelete1] = useState(false);
   const [successAdd, setSuccessAdd] = useState(false);
   const [successUpdate, setSuccessUpdate] = useState(false);
   const [successDelete, setSuccessDelete] = useState(false);
   const [vehicleId, setVehicleId] = useState("");
+  const [dataVehicles, setDataVehicles] = useState([]);
+  const [vehicleId2, setvehicleId2] = useState("");
   const [addData, setAddData] = useState({
     vehiclename: "",
     location: "",
@@ -69,11 +73,32 @@ function Admin() {
     }
   };
 
+  const Readv1 = async () => {
+    try {
+      await axios({
+        method: "GET",
+        url: "/vehicles",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        setDataVehicles(res.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    Readv1();
+  });
+
   const Updatev1 = async () => {
     try {
       await axios({
         method: "PUT",
-        url: `/vehicles/${vehicleId}`,
+        url: `/vehicles/${vehicleId2}`,
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -92,7 +117,7 @@ function Admin() {
     try {
       await axios({
         method: "DELETE",
-        url: `/vehicles/${vehicleId}`,
+        url: `/vehicles/${vehicleId2}`,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -108,20 +133,39 @@ function Admin() {
 
   const cre = () => {
     setCreate1(true);
+    setRead1(false);
     setUpdate1(false);
     setDelete1(false);
+    setSuccessUpdate(false);
+    setSuccessDelete(false);
+  };
+
+  const rea = () => {
+    setCreate1(false);
+    setRead1(true);
+    setUpdate1(false);
+    setDelete1(false);
+    setSuccessAdd(false);
+    setSuccessUpdate(false);
+    setSuccessDelete(false);
   };
 
   const upd = () => {
     setCreate1(false);
+    setRead1(false);
     setUpdate1(true);
     setDelete1(false);
+    setSuccessAdd(false);
+    setSuccessDelete(false);
   };
 
   const del = () => {
     setCreate1(false);
+    setRead1(false);
     setUpdate1(false);
     setDelete1(true);
+    setSuccessAdd(false);
+    setSuccessUpdate(false);
   };
 
   const ui = () => {
@@ -134,19 +178,53 @@ function Admin() {
           res={successAdd}
         />
       );
+    } else if (read1) {
+      return (
+        <div>
+          {dataVehicles.data?.map((v, k) => {
+            return (
+              <Read
+                key={k}
+                vid={v.vehicle_id}
+                vname={v.vehicle_name}
+                location={v.location}
+                status={v.status}
+                type={v.category}
+                price={v.price}
+                stock={v.stock}
+                image={v.image}
+                setvid={setvehicleId2}
+                update={upd}
+                delete={del}
+              />
+            );
+          })}
+        </div>
+      );
     } else if (update1) {
       return (
-        <Update
-          data={updateData}
-          setData={setUpdateData}
-          update={Updatev1}
-          res={successUpdate}
-          vid={setVehicleId}
-        />
+        <div>
+          <Col className="colup">
+            Vehicle Id : {vehicleId2 !== "" ? vehicleId2 : vehicleId}
+          </Col>
+          <Update
+            data={updateData}
+            setData={setUpdateData}
+            update={Updatev1}
+            res={successUpdate}
+            vid={setVehicleId}
+          />
+        </div>
       );
     } else {
       return (
-        <Delete delete={Deletev1} res={successDelete} vid={setVehicleId} />
+        <div>
+          <Col className="colup">
+            Vehicle Id : {vehicleId2 !== "" ? vehicleId2 : vehicleId}
+          </Col>
+          <Delete delete={Deletev1} res={successDelete} vid={vehicleId2} />
+          {/* vid={setVehicleId} */}
+        </div>
       );
     }
   };
@@ -161,6 +239,9 @@ function Admin() {
         >
           <Col onClick={cre} className={create1 ? "stylev2" : "stylev1 hover"}>
             <div>Create</div>
+          </Col>
+          <Col onClick={rea} className={read1 ? "stylev2" : "stylev1 hover"}>
+            <div>Read</div>
           </Col>
           <Col onClick={upd} className={update1 ? "stylev2" : "stylev1 hover"}>
             <div>Update</div>
