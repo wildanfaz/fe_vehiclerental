@@ -4,15 +4,15 @@ Front End - Vehicle Rental with React
 
 ## Screenshots
 
-### 1.Before-After Login
+### 1. Before-After Login
 
 ![App Screenshot](./ss/ss1.jpeg)
 
-### 2.Form Register and Login
+### 2. Form Register and Login
 
 ![App Screenshot](./ss/ss2.jpeg)
 
-### 3.Page Vehicle Type and Admin Only
+### 3. Page Vehicle Type and Admin Only
 
 ![App Screenshot](./ss/ss3.jpeg)
 
