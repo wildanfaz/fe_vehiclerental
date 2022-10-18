@@ -37,6 +37,12 @@ https://main--heroic-dragon-ca9949.netlify.app/
 https://fazdev-go-vehiclerental.herokuapp.com/api/v1/
 ```
 
+## Postman
+
+```bash
+https://documenter.getpostman.com/view/22978251/2s847Fut5c
+```
+
 ## Features
 
 - Register
@@ -50,6 +56,7 @@ https://fazdev-go-vehiclerental.herokuapp.com/api/v1/
 - Page for Admin Only
 - Search Query
 - URL Params
+- Sort Dropdown
 - Auth (JWT)
 - Axios
 - Search
