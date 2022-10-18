@@ -2,6 +2,12 @@
 
 Front End - Vehicle Rental with React
 
+## Screenshots
+
+![App Screenshot](./ss/ss1.jpeg)
+![App Screenshot](./ss/ss2.jpeg)
+![App Screenshot](./ss/ss3.jpeg)
+
 ## Clone
 
 ```bash
@@ -20,12 +26,19 @@ go mod tidy
 https://main--heroic-dragon-ca9949.netlify.app/
 ```
 
+## Heroku
+
+```bash
+https://fazdev-go-vehiclerental.herokuapp.com/api/v1/
+```
+
 ## Features
 
 - Register
 - Axios
 - Search
 - Netlify
+- Heroku
 
 ## Tech Stack
 
