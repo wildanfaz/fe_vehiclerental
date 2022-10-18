@@ -20,6 +20,7 @@ const userSlice = createSlice({
         ...state,
         isAuth: false,
         token: "",
+        data: {},
       };
     },
     dataUser(state, actions) {
