@@ -19,7 +19,7 @@ function Login() {
         }}
       >
         <div className="layer" />
-        <h1 className="textcss pfdisplay">
+        <h1 className="textcss">
           Le'ts Explore
           <br />
           The World
@@ -29,7 +29,7 @@ function Login() {
           <img src={line} alt="eclipse.png" className="line1" />
           <img src={eclipse} alt="eclipse.png" className="ecl2" />
         </div>
-        <h4 className="h4css nunito">Don't have account?</h4>
+        <h4 className="h4css">Don't have account?</h4>
         <Link to="/register" style={{ textDecoration: "none" }}>
           <Button variant="secondary" className="logincss">
             Sign Up
