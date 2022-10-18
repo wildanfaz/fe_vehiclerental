@@ -17,7 +17,7 @@ go mod tidy
 ## Netlify
 
 ```bash
-https://6345257e11145309ce7fe1ba--ephemeral-speculoos-16c12e.netlify.app/
+https://main--ephemeral-speculoos-16c12e.netlify.app/
 ```
 
 ## Features
