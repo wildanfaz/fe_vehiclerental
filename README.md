@@ -4,8 +4,13 @@ Front End - Vehicle Rental with React
 
 ## Screenshots
 
+#1
 ![App Screenshot](./ss/ss1.jpeg)
+
+#2
 ![App Screenshot](./ss/ss2.jpeg)
+
+#3
 ![App Screenshot](./ss/ss3.jpeg)
 
 ## Clone
@@ -35,14 +40,26 @@ https://fazdev-go-vehiclerental.herokuapp.com/api/v1/
 ## Features
 
 - Register
+- Login
+- React
+- Redux
+- Redux Persist
+- Redux Toolkit
+- Private Route
+- CRUD
+- Page for Admin Only
+- Search Query
+- URL Params
+- Auth (JWT)
 - Axios
 - Search
 - Netlify
 - Heroku
+- Postman
 
 ## Tech Stack
 
-**Client:** Javascript, React
+**Client:** Javascript, React, Redux, React-Bootstrap
 
 **Server:** Golang, PostgreSQL, GORM, Gorilla/mux
 
