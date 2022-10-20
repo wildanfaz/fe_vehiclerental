@@ -65,125 +65,136 @@ function HomeNavbar(props) {
   return (
     <Navbar bg="light" variant="light" expand="md">
       <Container>
-        <img src={logo} alt="logo.jpg" />
-        <Nav className="ms-auto">
-          <Link
-            to="/"
-            style={{ textDecoration: "none", marginLeft: "3px" }}
-            className={props.home ? "choosen nunito" : "unChoosen nunito"}
-          >
-            Home
-          </Link>
-          <Link
-            to="/vehicles"
-            style={{ textDecoration: "none", marginLeft: "3px" }}
-            className={props.vehicles ? "choosen nunito" : "unChoosen nunito"}
-            onClick={clickVehicle}
-          >
-            Vehicle Type
-          </Link>
-          <Link
-            to="/histories"
-            style={{ textDecoration: "none", marginLeft: "3px" }}
-            className={props.histories ? "choosen nunito" : "unChoosen nunito"}
-          >
-            History
-          </Link>
-          <Link
-            to="/about"
-            style={{ textDecoration: "none", marginLeft: "3px" }}
-            className={props.about ? "choosen nunito" : "unChoosen nunito"}
-          >
-            About
-          </Link>
-          {isAdmin()}
-          {isAuth ? (
-            <div style={{ display: "flex" }}>
-              <div
-                style={{
-                  backgroundImage: `url(${email})`,
-                  backgroundSize: "100% 100%",
-                  width: "30px",
-                  height: "28px",
-                  marginTop: "8px",
-                  marginRight: "30px",
-                  marginLeft: "60px",
-                }}
-              >
-                <img src={eclEmail} alt="ecl-email.png" className="eclEmail" />
-                <p
-                  className="eclEmail rubik"
-                  style={{
-                    marginTop: "-29px",
-                    marginLeft: "-4px",
-                    fontWeight: "bold",
-                    fontSize: "13px",
-                  }}
-                >
-                  1
-                </p>
-              </div>
-              <div>
-                <img src={tes} alt="profile.png" className="circle" />
-              </div>
-              <div className="logout" onClick={logOut}>
-                <FontAwesomeIcon icon={faRightFromBracket} size="2x" />
-              </div>
-            </div>
-          ) : (
-            <div style={{ display: "flex" }}>
-              <Link
-                to="/login"
-                style={{ textDecoration: "none", marginRight: "-25px" }}
-              >
+        <img src={logo} alt="logo.jpg" style={{ marginRight: "10px" }} />
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="ms-auto" navbarScroll>
+            <Link
+              to="/"
+              style={{ textDecoration: "none", marginLeft: "3px" }}
+              className={props.home ? "choosen nunito" : "unChoosen nunito"}
+            >
+              Home
+            </Link>
+            <Link
+              to="/vehicles"
+              style={{ textDecoration: "none", marginLeft: "3px" }}
+              className={props.vehicles ? "choosen nunito" : "unChoosen nunito"}
+              onClick={clickVehicle}
+            >
+              Vehicle Type
+            </Link>
+            <Link
+              to="/histories"
+              style={{ textDecoration: "none", marginLeft: "3px" }}
+              className={
+                props.histories ? "choosen nunito" : "unChoosen nunito"
+              }
+            >
+              History
+            </Link>
+            <Link
+              to="/about"
+              style={{ textDecoration: "none", marginLeft: "3px" }}
+              className={props.about ? "choosen nunito" : "unChoosen nunito"}
+            >
+              About
+            </Link>
+            {isAdmin()}
+            {isAuth ? (
+              <div style={{ display: "flex" }}>
                 <div
-                  onMouseEnter={() => {
-                    setLogin(true);
-                  }}
-                  onMouseLeave={() => {
-                    setLogin(false);
-                  }}
-                  className={
-                    login ? "btnNav onMouse hvr nunito" : "btnNav hvr nunito"
-                  }
                   style={{
-                    paddingTop: "5px",
-                    paddingBottom: "5px",
-                    marginTop: "11px",
-                    marginBottom: "5px",
-                    textAlign: "center",
-                    width: "120px",
+                    backgroundImage: `url(${email})`,
+                    backgroundSize: "100% 100%",
+                    width: "30px",
+                    height: "28px",
+                    marginTop: "8px",
+                    marginRight: "30px",
+                    marginLeft: "60px",
                   }}
                 >
-                  Login
+                  <img
+                    src={eclEmail}
+                    alt="ecl-email.png"
+                    className="eclEmail"
+                  />
+                  <p
+                    className="eclEmail rubik"
+                    style={{
+                      marginTop: "-29px",
+                      marginLeft: "-4px",
+                      fontWeight: "bold",
+                      fontSize: "13px",
+                    }}
+                  >
+                    1
+                  </p>
                 </div>
-              </Link>
-              <Link to="/register" style={{ textDecoration: "none" }}>
-                <div
-                  onMouseEnter={() => {
-                    setRegister(true);
-                  }}
-                  onMouseLeave={() => {
-                    setRegister(false);
-                  }}
-                  className={
-                    register ? "btnNav onMouse hvr nunito" : "btnNav hvr nunito"
-                  }
-                  style={{
-                    paddingTop: "5px",
-                    paddingBottom: "5px",
-                    marginTop: "11px",
-                    marginBottom: "5px",
-                    textAlign: "center",
-                    width: "120px",
-                  }}
+                <div>
+                  <img src={tes} alt="profile.png" className="circle" />
+                </div>
+                <div className="logout" onClick={logOut}>
+                  <FontAwesomeIcon icon={faRightFromBracket} size="2x" />
+                </div>
+              </div>
+            ) : (
+              <div style={{ display: "flex" }}>
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", marginRight: "-25px" }}
                 >
-                  Register
-                </div>
-              </Link>
-            </div>
-          )}
-        </Nav>
+                  <div
+                    onMouseEnter={() => {
+                      setLogin(true);
+                    }}
+                    onMouseLeave={() => {
+                      setLogin(false);
+                    }}
+                    className={
+                      login ? "btnNav onMouse hvr nunito" : "btnNav hvr nunito"
+                    }
+                    style={{
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                      marginTop: "11px",
+                      marginBottom: "5px",
+                      textAlign: "center",
+                      width: "120px",
+                    }}
+                  >
+                    Login
+                  </div>
+                </Link>
+                <Link to="/register" style={{ textDecoration: "none" }}>
+                  <div
+                    onMouseEnter={() => {
+                      setRegister(true);
+                    }}
+                    onMouseLeave={() => {
+                      setRegister(false);
+                    }}
+                    className={
+                      register
+                        ? "btnNav onMouse hvr nunito"
+                        : "btnNav hvr nunito"
+                    }
+                    style={{
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                      marginTop: "11px",
+                      marginBottom: "5px",
+                      textAlign: "center",
+                      width: "120px",
+                    }}
+                  >
+                    Register
+                  </div>
+                </Link>
+              </div>
+            )}
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
