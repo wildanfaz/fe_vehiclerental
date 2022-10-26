@@ -25,7 +25,7 @@ git clone https://github.com/wildanfaz/fe_vehiclerental.git
 ## Netlify
 
 ```bash
-https://main--heroic-dragon-ca9949.netlify.app/
+https://fazdev-vehiclerental.netlify.app/
 ```
 
 ## Heroku
