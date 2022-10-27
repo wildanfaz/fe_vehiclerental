@@ -22,6 +22,12 @@ Front End - Vehicle Rental with React
 git clone https://github.com/wildanfaz/fe_vehiclerental.git
 ```
 
+## Dependencies
+
+```bash
+yarn install
+```
+
 ## Netlify
 
 ```bash
